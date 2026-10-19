@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Ambition Tutorials | Classes 6–12 Tuition (CBSE & UP Board)</title>
+  <meta name="description" content="New Ambition Tutorials offers concept-focused tuition for Classes 6–12 covering CBSE and UP Board curriculum across Physics, Chemistry, Mathematics, Biology, Commerce, Hindi, and English." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <style>
+    :root {
+      --bg-deep: #050914;
+      --bg-navy: #091124;
+      --glass-bg: rgba(15, 23, 42, 0.62);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-hover: rgba(56, 189, 248, 0.42);
+      --glass-shadow: 0 20px 45px -15px rgba(2, 6, 23, 0.72);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-indigo: #818cf8;
+      --radius-card: 18px;
+      --font-sans: 'Inter', sans-serif;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); }
+    
+    body {
+      margin: 0; padding: 0; background-color: var(--bg-deep);
+      background-image:
+        radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.13) 0%, transparent 38%),
+        radial-gradient(circle at 88% 16%, rgba(99, 102, 241, 0.15) 0%, transparent 42%),
+        radial-gradient(circle at 50% 55%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 82% 88%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        linear-gradient(180deg, #050914 0%, #091124 45%, #070d1d 100%);
+      background-attachment: fixed; color: var(--text-primary); line-height: 1.6; overflow-x: hidden; min-height: 100vh;
+    }
+
+    .bg-grid-pattern {
+      background-size: 44px 44px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    h1, h2, h3, h4, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
+    :focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+    .skip-link { position: absolute; top: -100px; left: 16px; z-index: 9999; background: var(--accent-cyan); color: #020617; padding: 10px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: top 0.2s ease; }
+    .skip-link:focus { top: 16px; }
+
+    .glass-nav { background: rgba(7, 13, 29, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.65); }
+    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); border-radius: var(--radius-card); transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, background-color 0.25s ease; }
+    .glass-card-interactive:hover { transform: translateY(-3px); border-color: var(--glass-border-hover); background: rgba(30, 41, 59, 0.58); }
+    .glass-panel-subtle { background: rgba(15, 23, 42, 0.42); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 12px; }
+    
+    .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.22); box-shadow: 0 10px 25px -6px rgba(14, 165, 233, 0.45); transition: all 0.2s ease; }
+    .btn-primary:hover { background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); transform: translateY(-1px); }
+    .btn-whatsapp { background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.22); box-shadow: 0 10px 25px -6px rgba(16, 185, 129, 0.4); transition: all 0.2s ease; }
+    .btn-whatsapp:hover { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); transform: translateY(-1px); }
+    .btn-glass { background: rgba(30, 41, 59, 0.65); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.16); transition: all 0.2s ease; }
+    .btn-glass:hover { background: rgba(51, 65, 85, 0.75); border-color: rgba(56, 189, 248, 0.45); }
+
+    /* ELECTRIC NAVIGATOR CSS */
+    #desktop-nav { position: relative; }
+    .nav-link { position: relative; z-index: 10; color: var(--text-secondary); transition: color 0.3s ease; }
+    .nav-link:hover, .nav-link.active { color: #ffffff; }
+    #nav-active-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background: #ffffff; border-radius: 2px; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), width 0.35s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform, width; z-index: 1; box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+    #nav-hover-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background: var(--accent-cyan); border-radius: 2px; box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan); transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), width 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease; will-change: transform, width, opacity; z-index: 0; opacity: 0; pointer-events: none; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      #nav-active-indicator, #nav-hover-indicator { transition: none !important; }
+    }
+
+    .placeholder-callout { background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(251, 191, 36, 0.45); border-radius: 12px; color: #fde68a; }
+    .placeholder-tag { display: inline-flex; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #fde68a; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(251, 191, 36, 0.4); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-grid-pattern antialiased selection:bg-sky-500 selection:text-slate-950">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- TOP NOTICE BANNER -->
+  <aside id="top-notice-banner" class="relative z-50 bg-slate-950/90 border-b border-white/10 px-4 py-2.5 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-500/20 text-sky-300 border border-sky-400/40 shrink-0">Enquiries Open</span>
+        <p class="text-slate-200 font-medium">Academic tuition enquiries open for Classes 6–12 (CBSE & UP Board).</p>
+      </div>
+      <button id="close-notice-btn" type="button" class="p-1 rounded-lg text-slate-400 hover:text-white" aria-label="Dismiss">✕</button>
+    </div>
+  </aside>
+
+  <!-- HEADER & ELECTRIC NAVIGATION -->
+  <header id="site-header" class="sticky top-0 z-40 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500/30 via-indigo-600/30 to-slate-900 border border-sky-400/40 flex items-center justify-center shadow-lg shrink-0">
+          <span class="font-display font-extrabold text-base tracking-tight text-white">NAT</span>
+        </div>
+        <div>
+          <span class="font-display font-bold text-base sm:text-lg text-white block leading-tight">New Ambition</span>
+          <span class="text-xs text-sky-300 font-medium block">Tutorials</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav id="desktop-nav" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <div id="nav-active-indicator"></div>
+        <div id="nav-hover-indicator"></div>
+        
+        <a href="#home" class="nav-link active px-3 py-2 text-sm font-medium rounded-lg">Home</a>
+        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">About Us</a>
+        <a href="#achievements" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Achievements</a>
+        <a href="#faculty" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Our Team</a>
+        <a href="#classes" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Classes</a>
+        <a href="#gallery" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Photos</a>
+        <a href="#reviews" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Reviews</a>
+        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-2.5">
+        <a href="#contact" class="btn-primary px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5">
+          Enquire Now →
+        </a>
+      </div>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden btn-glass p-2.5 rounded-xl text-slate-200" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-xl px-4 pt-4 pb-6 absolute w-full">
+      <nav class="grid grid-cols-1 gap-1">
+        <a href="#home" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Home</a>
+        <a href="#about" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">About Us</a>
+        <a href="#achievements" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Achievements</a>
+        <a href="#faculty" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Our Team</a>
+        <a href="#classes" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Classes & Subjects</a>
+        <a href="#gallery" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Photos</a>
+        <a href="#reviews" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Reviews</a>
+        <a href="#contact" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- 1. HOME / DASHBOARD SECTION -->
+    <section id="home" class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-subtle text-xs sm:text-sm font-semibold text-sky-300">
+              <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+              <span>New Ambition Tutorials • Classes 6–12</span>
+            </div>
+            <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+              Build Strong Concepts.<br>
+              <span class="bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent block mt-1">Shape Your Ambition.</span>
+            </h1>
+            <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed">Personalised tuition for Classes 6–12, covering CBSE and UP Board curriculum in Physics, Chemistry, Mathematics, Biology, Commerce, Hindi, and English.</p>
+            <div class="flex flex-wrap items-center gap-3.5 pt-2">
+              <a href="#classes" class="btn-primary px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold flex items-center gap-2">
+                Explore Classes
+              </a>
+              <a href="https://wa.me/919219626863" target="_blank" class="btn-whatsapp px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold flex items-center gap-2">
+                Enquire on WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="glass-card p-6 sm:p-7">
+              <h2 class="text-lg font-bold text-white mb-4 border-b border-white/10 pb-3">Subjects We Teach</h2>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Physics</div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Chemistry</div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Mathematics</div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Biology</div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Commerce</div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Hindi</div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">English</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ACHIEVEMENTS / STATS SECTION -->
+    <section id="achievements" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Our Track Record</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Achievements & Milestones</h2>
+        </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl sm:text-5xl font-extrabold text-sky-400 mb-2 font-display counter-value" data-target="5">0</div>
+            <p class="text-sm font-semibold text-slate-300">Years of Excellence</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl sm:text-5xl font-extrabold text-indigo-400 mb-2 font-display counter-value" data-target="500">0</div>
+            <p class="text-sm font-semibold text-slate-300">Students Taught</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl sm:text-5xl font-extrabold text-emerald-400 mb-2 font-display counter-value" data-target="95">0</div>
+            <p class="text-sm font-semibold text-slate-300">Success Rate (%)</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl sm:text-5xl font-extrabold text-amber-400 mb-2 font-display counter-value" data-target="50">0</div>
+            <p class="text-sm font-semibold text-slate-300">Top Rankers</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ABOUT US SECTION -->
+    <section id="about" class="py-16 sm:py-20 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">About Us</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Dedicated Academic Guidance</h2>
+          <p class="text-slate-300 mt-3 text-base leading-relaxed"><strong>New Ambition Tutorials</strong> is an educational coaching institute serving students across Classes 6 to 12 in both <strong>CBSE</strong> and <strong>UP Board</strong> curricula. Our focus is on helping students build clear conceptual foundations across Science, Commerce, Mathematics, and Languages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FACULTY & MANAGEMENT SECTION -->
+    <section id="faculty" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Meet the Team</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Our Leadership & Faculty</h2>
+        </div>
+
+        <!-- Leadership Row -->
+        <h3 class="text-xl font-bold text-center text-sky-300 mb-6">Leadership & Management</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+          
+          <!-- Manish Mishra -->
+          <div class="glass-card p-6 text-center">
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 p-1 mb-4">
+              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">MM</div>
+            </div>
+            <h3 class="text-xl font-bold text-white">Manish Mishra</h3>
+            <p class="text-sm text-sky-400 mb-3 font-semibold">HOD & Chemistry Faculty</p>
+            <p class="text-xs text-slate-400">Leading the academic curriculum and chemistry department.</p>
+          </div>
+
+          <!-- Ajay Chaturvedi -->
+          <div class="glass-card p-6 text-center">
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 p-1 mb-4">
+              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">AC</div>
+            </div>
+            <h3 class="text-xl font-bold text-white">Ajay Chaturvedi</h3>
+            <p class="text-sm text-emerald-400 mb-3 font-semibold">Co-Founder & Math Faculty</p>
+            <p class="text-xs text-slate-400">Guiding students with mathematical precision and logic.</p>
+          </div>
+
+          <!-- Sneha Chaturvedi -->
+          <div class="glass-card p-6 text-center">
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 p-1 mb-4">
+              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">SC</div>
+            </div>
+            <h3 class="text-xl font-bold text-white">Sneha Chaturvedi</h3>
+            <p class="text-sm text-pink-400 mb-3 font-semibold">Institute Manager</p>
+            <p class="text-xs text-slate-400">Managing operations, admissions, and student support.</p>
+          </div>
+        </div>
+
+        <!-- Core Faculty Row (With Images) -->
+        <h3 class="text-xl font-bold text-center text-sky-300 mb-6">Core Faculty</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          
+          <!-- Swastik Roy (Purple Photo) -->
+          <div class="glass-card glass-card-interactive p-6 text-center relative">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-400 p-1 mb-5 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+              <!-- Make sure to put your purple shirt image as swastik.jpg in assets/images/ -->
+              <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
+            </div>
+            <h3 class="text-xl font-bold text-white">Swastik Roy</h3>
+            <p class="text-sm text-purple-400 mb-4 font-semibold">Chemistry Educator</p>
+            <div class="placeholder-callout p-3 text-xs text-left mb-2">
+              <p><strong>Subject:</strong> Chemistry</p>
+            </div>
+          </div>
+
+          <!-- Rahul Sir (Grey Photo) -->
+          <div class="glass-card glass-card-interactive p-6 text-center relative">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-emerald-400 p-1 mb-5 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
+              <!-- Make sure to put your grey shirt image as rahul.jpg in assets/images/ -->
+              <img src="assets/images/rahul.jpg" alt="Rahul Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Sir&background=10B981&color=fff'">
+            </div>
+            <h3 class="text-xl font-bold text-white">Rahul Sir</h3>
+            <p class="text-sm text-emerald-400 mb-4 font-semibold">Commerce Faculty</p>
+            <div class="placeholder-callout p-3 text-xs text-left mb-2">
+              <p><strong>Subject:</strong> Commerce</p>
+            </div>
+          </div>
+
+          <!-- Pradeep Sir (Blue Photo) -->
+          <div class="glass-card glass-card-interactive p-6 text-center relative">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-400 p-1 mb-5 shadow-[0_0_20px_rgba(56,189,248,0.4)]">
+              <!-- Make sure to put your blue shirt image as pradeep.jpg in assets/images/ -->
+              <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0D8ABC&color=fff'">
+            </div>
+            <h3 class="text-xl font-bold text-white">Pradeep Sir</h3>
+            <p class="text-sm text-sky-400 mb-4 font-semibold">Physics Faculty</p>
+            <div class="placeholder-callout p-3 text-xs text-left mb-2">
+              <p><strong>Subject:</strong> Physics</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CLASSES & SUBJECTS SECTION -->
+    <section id="classes" class="py-16 sm:py-20 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Curriculum</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Classes & Subjects</h2>
+          <p class="text-slate-300 mt-3">We offer individual subject tuition, combination packages, and PCMB options where applicable.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-sky-400 mb-2">Classes 6–8</h3>
+            <p class="text-sm text-slate-300 mb-3">Foundation building with focus on core concepts across all subjects.</p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Maths</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Science</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">English</span>
+            </div>
+          </div>
+          <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-indigo-400 mb-2">Classes 9–10</h3>
+            <p class="text-sm text-slate-300 mb-3">Board-oriented preparation and rigorous practice for CBSE and UP Board.</p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Science</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Maths</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Commerce</span>
+            </div>
+          </div>
+          <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-emerald-400 mb-2">Classes 11–12</h3>
+            <p class="text-sm text-slate-300 mb-3">Advanced PCMB, Commerce and subject specialization for competitive exams.</p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">PCMB</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Commerce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PHOTOS / GALLERY SECTION -->
+    <section id="gallery" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12 text-center mx-auto">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Gallery</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Our Institute Photos</h2>
+        </div>
+        
+        <div class="glass-card p-10 max-w-2xl mx-auto text-center border-dashed border-2 border-white/20">
+          <div class="text-4xl mb-4">📸</div>
+          <h3 class="text-lg font-bold text-white mb-2">Real Photos Coming Soon</h3>
+          <p class="text-sm text-slate-400">We believe in transparency. Actual classroom photos and faculty images will be uploaded shortly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. REVIEWS SECTION -->
+    <section id="reviews" class="py-16 sm:py-20 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12 text-center mx-auto">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Testimonials</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Student & Parent Reviews</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="glass-card p-6">
+            <div class="text-amber-400 mb-2">★★★★★</div>
+            <p class="text-sm text-slate-300 italic mb-4">"The concept clarity for Physics and Chemistry is unmatched. Manish sir ensures every doubt is cleared."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white">R</div>
+              <div>
+                <p class="text-sm font-bold text-white">Rahul S.</p>
+                <p class="text-xs text-slate-400">Class 12 Student</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card p-6">
+            <div class="text-amber-400 mb-2">★★★★★</div>
+            <p class="text-sm text-slate-300 italic mb-4">"My daughter's performance improved drastically. The regular tests and communication gave me peace of mind."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white">P</div>
+              <div>
+                <p class="text-sm font-bold text-white">Priya V.</p>
+                <p class="text-xs text-slate-400">Parent</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT SECTION -->
+    <section id="contact" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12 text-center mx-auto">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Get In Touch</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Admission Enquiry</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="glass-card p-8">
+            <h3 class="text-xl font-bold text-white mb-6">Contact Details</h3>
+            <div class="space-y-4">
+              <a href="tel:+919219626863" class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/10 hover:border-sky-400/50 transition-colors">
+                <span class="text-2xl">📞</span>
+                <div>
+                  <p class="text-xs text-slate-400">Call Us</p>
+                  <p class="text-base font-bold text-white">+91 92196 26863</p>
+                </div>
+              </a>
+              <a href="https://wa.me/919219626863" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/10 hover:border-emerald-400/50 transition-colors">
+                <span class="text-2xl">💬</span>
+                <div>
+                  <p class="text-xs text-slate-400">WhatsApp</p>
+                  <p class="text-base font-bold text-white">Chat with us</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-xl font-bold text-white mb-6">Send a Message</h3>
+            <form class="space-y-4">
+              <input type="text" placeholder="Student Name" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+              <input type="tel" placeholder="Phone Number" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+              
+              <select class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400">
+                <option value="" class="text-slate-500">Select Subject</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="maths">Mathematics</option>
+                <option value="biology">Biology</option>
+                <option value="commerce">Commerce</option>
+                <option value="hindi">Hindi</option>
+                <option value="english">English</option>
+              </select>
+
+              <button type="submit" class="btn-primary w-full py-3 rounded-xl font-bold">Submit Enquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/10 bg-slate-950/90 pt-8 pb-8 text-center text-xs text-slate-400">
+    <p>© <span id="current-copyright-year"></span> New Ambition Tutorials. All rights reserved.</p>
+    <p class="mt-2 text-slate-500">Managed by Sneha Chaturvedi | Led by Manish Mishra & Ajay Chaturvedi</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // 1. Dynamic Year
+    document.getElementById('current-copyright-year').textContent = new Date().getFullYear();
+
+    // 2. Notice Banner Close
+    document.getElementById('close-notice-btn').addEventListener('click', () => {
+      document.getElementById('top-notice-banner').classList.add('hidden');
+    });
+
+    // 3. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuDrawer.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenuDrawer.classList.add('hidden'));
+    });
+
+    // =========================================
+    // 4. ELECTRIC NAVIGATOR ANIMATION LOGIC
+    // =========================================
+    const desktopNav = document.getElementById('desktop-nav');
+    const desktopNavLinks = document.querySelectorAll('.nav-link');
+    const activeIndicator = document.getElementById('nav-active-indicator');
+    const hoverIndicator = document.getElementById('nav-hover-indicator');
+
+    if (desktopNav && activeIndicator && hoverIndicator) {
+      function moveIndicator(indicator, element) {
+        if (!element) return;
+        const left = element.offsetLeft;
+        const width = element.offsetWidth;
+        indicator.style.transform = `translateX(${left}px)`;
+        indicator.style.width = `${width}px`;
+      }
+
+      function setActiveLink(link) {
+        if (!link) return;
+        desktopNavLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        moveIndicator(activeIndicator, link);
+      }
+
+      const initialActive = document.querySelector('.nav-link.active') || desktopNavLinks[0];
+      if (initialActive) {
+        activeIndicator.style.transition = 'none';
+        setActiveLink(initialActive);
+        setTimeout(() => { activeIndicator.style.transition = ''; }, 50);
+      }
+
+      desktopNavLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          moveIndicator(hoverIndicator, link);
+          hoverIndicator.style.opacity = '1';
+        });
+        link.addEventListener('focus', () => {
+          moveIndicator(hoverIndicator, link);
+          hoverIndicator.style.opacity = '1';
+        });
+        link.addEventListener('blur', () => {
+          hoverIndicator.style.opacity = '0';
+        });
+        link.addEventListener('click', () => {
+          setActiveLink(link);
+        });
+      });
+
+      desktopNav.addEventListener('mouseleave', () => {
+        hoverIndicator.style.opacity = '0';
+      });
+
+      window.addEventListener('resize', () => {
+        const activeLink = document.querySelector('.nav-link.active');
+        if (activeLink) {
+          activeIndicator.style.transition = 'none';
+          hoverIndicator.style.transition = 'none';
+          moveIndicator(activeIndicator, activeLink);
+          hoverIndicator.style.opacity = '0';
+          setTimeout(() => {
+            activeIndicator.style.transition = '';
+            hoverIndicator.style.transition = '';
+          }, 50);
+        }
+      });
+
+      window.updateNavActiveState = setActiveLink;
+    }
+
+    // =========================================
+    // 5. ACTIVE NAV ON SCROLL
+    // =========================================
+    const sections = document.querySelectorAll('section[id]');
+    if ("IntersectionObserver" in window && sections.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.id;
+            desktopNavLinks.forEach(link => {
+              if (link.getAttribute("href") === "#" + activeId) {
+                if (window.updateNavActiveState) window.updateNavActiveState(link);
+              }
+            });
+          }
+        });
+      }, { rootMargin: "-25% 0px -60% 0px", threshold: 0.05 });
+      sections.forEach(sec => observer.observe(sec));
+    }
+
+    // =========================================
+    // 6. ACHIEVEMENTS COUNTER ANIMATION
+    // =========================================
+    const counters = document.querySelectorAll('.counter-value');
+    let hasCounted = false;
+
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; 
+        const stepTime = Math.abs(Math.floor(duration / target));
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += Math.ceil(target / 50); 
+          if (current >= target) {
+            counter.innerText = target;
+            clearInterval(timer);
+          } else {
+            counter.innerText = current;
+          }
+        }, stepTime);
+      });
+    };
+
+    const achievementSection = document.getElementById('achievements');
+    if (achievementSection) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasCounted) {
+          animateCounters();
+          hasCounted = true; 
+        }
+      }, { threshold: 0.5 });
+      statsObserver.observe(achievementSection);
+    }
+  </script>
+</body>
+            </html>
