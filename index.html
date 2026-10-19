@@ -31,43 +31,47 @@
   <style>
     :root {
       --bg-deep: #050914;
-      --glass-bg: rgba(15, 23, 42, 0.62);
-      --glass-border: rgba(255, 255, 255, 0.12);
-      --glass-border-hover: rgba(56, 189, 248, 0.42);
-      --glass-shadow: 0 20px 45px -15px rgba(2, 6, 23, 0.72);
+      --glass-bg: rgba(15, 23, 42, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-border-hover: rgba(56, 189, 248, 0.4);
+      --glass-shadow: 0 20px 40px -10px rgba(2, 6, 23, 0.8);
       --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
+      --text-secondary: #94a3b8;
       --accent-cyan: #38bdf8;
       --font-sans: 'Inter', sans-serif;
       --font-display: 'Plus Jakarta Sans', sans-serif;
     }
 
+    html {
+      scroll-padding-top: 90px; /* Prevents sticky header from hiding section titles */
+    }
+
     body {
       margin: 0; padding: 0; background-color: var(--bg-deep); font-family: var(--font-sans);
       background-image:
-        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 40%);
       background-attachment: fixed; color: var(--text-primary); line-height: 1.6;
-      overflow-x: hidden; min-height: 100vh;
+      overflow-x: hidden; min-height: 100vh; -webkit-font-smoothing: antialiased;
     }
 
     h1, h2, h3, h4, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
-    :focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 4px; }
+    :focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 4px; border-radius: 4px; }
 
     /* Accessibility Skip Link */
     .skip-link { position: absolute; top: -100px; left: 16px; z-index: 9999; background: var(--accent-cyan); color: #020617; padding: 10px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: top 0.2s ease; }
     .skip-link:focus { top: 16px; }
 
     /* Glassmorphism */
-    .glass-nav { background: rgba(5, 9, 20, 0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); border-radius: 18px; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
-    .glass-card-hover:hover { transform: translateY(-4px); border-color: var(--glass-border-hover); box-shadow: 0 25px 50px -12px rgba(2, 6, 23, 0.8), 0 0 20px rgba(56, 189, 248, 0.1); }
+    .glass-nav { background: rgba(5, 9, 20, 0.75); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border-bottom: 1px solid var(--glass-border); }
+    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); border-radius: 18px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+    .glass-card-hover:hover { transform: translateY(-4px); border-color: var(--glass-border-hover); box-shadow: 0 25px 50px -12px rgba(2, 6, 23, 0.9), 0 0 20px rgba(56, 189, 248, 0.1); }
     
     /* Buttons */
-    .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%); color: #fff; box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4); transition: all 0.3s ease; }
-    .btn-primary:hover { background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); transform: translateY(-2px); }
-    .btn-whatsapp { background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #fff; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4); transition: all 0.3s ease; }
-    .btn-whatsapp:hover { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%); color: #fff; box-shadow: 0 8px 20px -6px rgba(14, 165, 233, 0.5); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
+    .btn-primary:hover { background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); transform: translateY(-2px); box-shadow: 0 12px 25px -6px rgba(14, 165, 233, 0.6); }
+    .btn-whatsapp { background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #fff; box-shadow: 0 8px 20px -6px rgba(16, 185, 129, 0.4); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
+    .btn-whatsapp:hover { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); transform: translateY(-2px); box-shadow: 0 12px 25px -6px rgba(16, 185, 129, 0.5); }
 
     /* Electric Navigator */
     #desktop-nav { position: relative; }
@@ -84,13 +88,13 @@
     .reveal-hero { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
     .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
 
-    .reveal-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .reveal-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
     .reveal-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
-    .float-icon { position: absolute; color: rgba(56, 189, 248, 0.08); font-size: 4rem; font-weight: 800; pointer-events: none; z-index: 0; }
-    .float-1 { top: 10%; left: 5%; animation: floatSymbol 8s ease-in-out infinite; }
-    .float-2 { top: 60%; right: 10%; animation: floatSymbol2 10s ease-in-out infinite; font-size: 6rem; }
-    .float-3 { bottom: 10%; left: 40%; animation: floatSymbol 12s ease-in-out infinite; }
+    .float-icon { position: absolute; color: rgba(56, 189, 248, 0.05); font-size: 5rem; font-weight: 800; pointer-events: none; z-index: 0; user-select: none; }
+    .float-1 { top: 15%; left: 5%; animation: floatSymbol 10s ease-in-out infinite; }
+    .float-2 { top: 60%; right: 8%; animation: floatSymbol2 12s ease-in-out infinite; font-size: 7rem; }
+    .float-3 { bottom: 10%; left: 45%; animation: floatSymbol 14s ease-in-out infinite; }
 
     /* FAQ Accordion */
     .faq-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease-out; }
@@ -104,34 +108,32 @@
     #lightbox.active { display: flex; opacity: 1; }
 
     /* Timeline */
-    .timeline-item::before { content: ''; position: absolute; left: -1.25rem; top: 0.5rem; bottom: -2rem; width: 2px; background: rgba(56, 189, 248, 0.2); }
+    .timeline-item::before { content: ''; position: absolute; left: -1.25rem; top: 0.5rem; bottom: -2rem; width: 2px; background: rgba(56, 189, 248, 0.15); }
     .timeline-item:last-child::before { display: none; }
     .timeline-dot { position: absolute; left: -1.75rem; top: 0.25rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--accent-cyan); border: 3px solid var(--bg-deep); box-shadow: 0 0 10px var(--accent-cyan); }
 
-    /* Utilities */
-    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    
     /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       #nav-active-indicator, #nav-hover-indicator { transition: none !important; }
       .reveal-scroll { opacity: 1 !important; transform: none !important; }
+      .float-icon { display: none; }
     }
   </style>
 </head>
-<body class="antialiased selection:bg-sky-500 selection:text-slate-950 relative">
+<body class="relative">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Ambient Background Orbs -->
-  <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-sky-500/10 blur-[100px] pointer-events-none z-0"></div>
-  <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none z-0"></div>
+  <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-sky-500/5 blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none z-0"></div>
 
   <!-- TOP BANNER -->
   <aside id="top-banner" class="relative z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5 px-4 py-2 text-xs sm:text-sm text-center">
     <div class="flex items-center justify-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <p class="text-slate-300 font-medium">Admissions Open for 2024-25 batch. <a href="#contact" class="text-sky-400 underline underline-offset-4 hover:text-white transition-colors">Enquire Now</a></p>
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+      <p class="text-slate-300 font-medium">Admissions Enquiry Open. <a href="#contact" class="text-sky-400 underline underline-offset-4 hover:text-white transition-colors">Contact us to learn more</a></p>
     </div>
   </aside>
 
@@ -139,8 +141,9 @@
   <header class="sticky top-0 z-40 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <a href="#home" class="flex items-center gap-3 group relative z-50">
-        <div class="w-11 h-11 rounded-xl bg-slate-800 border border-sky-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.2)] overflow-hidden">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 group relative z-50" aria-label="New Ambition Tutorials Home">
+        <div class="w-11 h-11 rounded-xl bg-slate-800 border border-sky-400/20 flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.15)] overflow-hidden group-hover:border-sky-400/50 transition-colors">
           <img src="assets/images/logo.png" alt="NAT Logo" class="w-full h-full object-contain p-1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span class="hidden font-display font-extrabold text-white text-lg">NAT</span>
         </div>
@@ -170,7 +173,8 @@
         </a>
       </div>
 
-      <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-300 hover:text-white relative z-50" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+      <!-- MOBILE MENU TOGGLE -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-300 hover:text-white relative z-50 focus:outline-none" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
@@ -185,7 +189,7 @@
         <a href="#methodology" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Methodology</a>
         <a href="#gallery" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Gallery</a>
         <a href="#faq" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">FAQ</a>
-        <a href="#contact" class="mobile-link px-4 py-3 rounded-lg bg-sky-500/20 text-sky-300 font-bold mt-2">Contact & Enquiry</a>
+        <a href="#contact" class="mobile-link px-4 py-3 rounded-lg bg-sky-500/20 text-sky-300 font-bold mt-2 text-center">Contact & Enquiry</a>
       </nav>
     </div>
   </header>
@@ -195,9 +199,9 @@
     <!-- HERO SECTION -->
     <section id="home" class="relative pt-20 pb-24 sm:pt-28 sm:pb-32 overflow-hidden">
       <!-- Floating Academic Symbols -->
-      <div class="float-icon float-1 font-serif">π</div>
-      <div class="float-icon float-2 font-sans">∑</div>
-      <div class="float-icon float-3 font-serif">∞</div>
+      <div class="float-icon float-1 font-serif" aria-hidden="true">π</div>
+      <div class="float-icon float-2 font-sans" aria-hidden="true">∑</div>
+      <div class="float-icon float-3 font-serif" aria-hidden="true">∞</div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -230,8 +234,9 @@
 
           <!-- Hero Right: Quick Stats Grid -->
           <div class="reveal-hero delay-3 relative">
-            <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 rounded-3xl blur-2xl transform rotate-3"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 rounded-3xl blur-2xl transform rotate-3" aria-hidden="true"></div>
             <div class="glass-card p-8 relative border-white/10 grid grid-cols-2 gap-6">
+              <!-- Note: These statistics are placeholders and need to be confirmed by the institute -->
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Years of Excellence</span>
                 <div class="font-display text-4xl font-extrabold text-white counter" data-target="5">0</div>
@@ -239,7 +244,6 @@
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Students Taught</span>
                 <div class="font-display text-4xl font-extrabold text-white counter" data-target="500">0</div>
-                <span class="text-xs text-sky-400">and counting...</span>
               </div>
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Expert Faculty</span>
@@ -248,7 +252,6 @@
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Success Rate</span>
                 <div class="font-display text-4xl font-extrabold text-emerald-400 counter" data-target="95">0</div>
-                <span class="text-xs text-slate-400">Parent satisfaction</span>
               </div>
             </div>
           </div>
@@ -349,53 +352,52 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <!-- Classes 6-8 -->
-          <div class="glass-card glass-card-hover overflow-hidden group reveal-scroll cursor-pointer class-card">
-            <div class="p-8">
-              <h3 class="text-2xl font-bold text-sky-400 mb-3">Classes 6–8</h3>
-              <p class="text-slate-300 mb-4">Foundation building with focus on core concepts across all subjects.</p>
-              <button class="text-sm font-semibold text-white flex items-center gap-1 group-hover:text-sky-300 transition-colors">
-                View Subjects <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-            </div>
-            <!-- Expandable Subject List -->
-            <div class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-2">
-              <div class="text-sm text-slate-300 flex justify-between"><span>Mathematics</span> <span class="text-sky-400">✓</span></div>
-              <div class="text-sm text-slate-300 flex justify-between"><span>Science (Phy/Chem/Bio)</span> <span class="text-sky-400">✓</span></div>
-              <div class="text-sm text-slate-300 flex justify-between"><span>English</span> <span class="text-sky-400">✓</span></div>
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group class-card">
+            <button class="w-full text-left p-8 focus:outline-none" aria-expanded="false" aria-controls="subjects-1">
+              <h3 class="text-2xl font-bold text-sky-400 mb-3 flex justify-between items-center">
+                Classes 6–8
+                <svg class="w-5 h-5 text-slate-400 group-hover:text-sky-400 transition-transform duration-300 expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </h3>
+              <p class="text-slate-300">Foundation building with focus on core concepts across all subjects.</p>
+            </button>
+            <div id="subjects-1" class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-3">
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Mathematics</span> <span class="text-sky-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Science (Phy/Chem/Bio)</span> <span class="text-sky-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>English</span> <span class="text-sky-400">✓</span></div>
               <div class="text-sm text-slate-300 flex justify-between"><span>Hindi</span> <span class="text-sky-400">✓</span></div>
             </div>
           </div>
 
           <!-- Classes 9-10 -->
-          <div class="glass-card glass-card-hover overflow-hidden group reveal-scroll cursor-pointer class-card" style="transition-delay: 100ms;">
-            <div class="p-8">
-              <h3 class="text-2xl font-bold text-indigo-400 mb-3">Classes 9–10</h3>
-              <p class="text-slate-300 mb-4">Board-oriented preparation and rigorous practice for CBSE and UP Board.</p>
-              <button class="text-sm font-semibold text-white flex items-center gap-1 group-hover:text-indigo-300 transition-colors">
-                View Subjects <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-            </div>
-            <div class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-2">
-              <div class="text-sm text-slate-300 flex justify-between"><span>Mathematics</span> <span class="text-indigo-400">✓</span></div>
-              <div class="text-sm text-slate-300 flex justify-between"><span>Science (Phy/Chem/Bio)</span> <span class="text-indigo-400">✓</span></div>
-              <div class="text-sm text-slate-300 flex justify-between"><span>Social Science</span> <span class="text-indigo-400">✓</span></div>
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group class-card" style="transition-delay: 100ms;">
+            <button class="w-full text-left p-8 focus:outline-none" aria-expanded="false" aria-controls="subjects-2">
+              <h3 class="text-2xl font-bold text-indigo-400 mb-3 flex justify-between items-center">
+                Classes 9–10
+                <svg class="w-5 h-5 text-slate-400 group-hover:text-indigo-400 transition-transform duration-300 expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </h3>
+              <p class="text-slate-300">Board-oriented preparation and rigorous practice for CBSE and UP Board.</p>
+            </button>
+            <div id="subjects-2" class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-3">
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Mathematics</span> <span class="text-indigo-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Science (Phy/Chem/Bio)</span> <span class="text-indigo-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Social Science</span> <span class="text-indigo-400">✓</span></div>
               <div class="text-sm text-slate-300 flex justify-between"><span>English & Hindi</span> <span class="text-indigo-400">✓</span></div>
             </div>
           </div>
 
           <!-- Classes 11-12 -->
-          <div class="glass-card glass-card-hover overflow-hidden group reveal-scroll cursor-pointer class-card" style="transition-delay: 200ms;">
-            <div class="p-8">
-              <h3 class="text-2xl font-bold text-emerald-400 mb-3">Classes 11–12</h3>
-              <p class="text-slate-300 mb-4">Advanced PCMB, Commerce, and specialized preparation for boards & CUET.</p>
-              <button class="text-sm font-semibold text-white flex items-center gap-1 group-hover:text-emerald-300 transition-colors">
-                View Subjects <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-            </div>
-            <div class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-2">
-              <div class="text-sm text-slate-300 flex justify-between"><span>Physics & Chemistry</span> <span class="text-emerald-400">✓</span></div>
-              <div class="text-sm text-slate-300 flex justify-between"><span>Mathematics / Biology</span> <span class="text-emerald-400">✓</span></div>
-              <div class="text-sm text-slate-300 flex justify-between"><span>Commerce (Accounts/BST)</span> <span class="text-emerald-400">✓</span></div>
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group class-card" style="transition-delay: 200ms;">
+            <button class="w-full text-left p-8 focus:outline-none" aria-expanded="false" aria-controls="subjects-3">
+              <h3 class="text-2xl font-bold text-emerald-400 mb-3 flex justify-between items-center">
+                Classes 11–12
+                <svg class="w-5 h-5 text-slate-400 group-hover:text-emerald-400 transition-transform duration-300 expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </h3>
+              <p class="text-slate-300">Advanced PCMB, Commerce, and specialized preparation for boards & CUET.</p>
+            </button>
+            <div id="subjects-3" class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-3">
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Physics & Chemistry</span> <span class="text-emerald-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Mathematics / Biology</span> <span class="text-emerald-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between border-b border-white/5 pb-2"><span>Commerce (Accounts/BST)</span> <span class="text-emerald-400">✓</span></div>
               <div class="text-sm text-slate-300 flex justify-between"><span>CUET Preparation</span> <span class="text-emerald-400">✓</span></div>
             </div>
           </div>
@@ -412,36 +414,32 @@
         </div>
 
         <div class="max-w-3xl mx-auto relative pl-8 sm:pl-12 py-4">
-          <!-- Step 1 -->
           <div class="timeline-item relative mb-12 reveal-scroll">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot" aria-hidden="true"></div>
             <div class="glass-card p-6">
               <span class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-1 block">Step 01</span>
               <h3 class="text-xl font-bold text-white mb-2">Concept Clarity</h3>
               <p class="text-sm text-slate-400">We break down complex topics into digestible fundamentals, ensuring students understand the 'why' before the 'how'.</p>
             </div>
           </div>
-          <!-- Step 2 -->
           <div class="timeline-item relative mb-12 reveal-scroll" style="transition-delay: 100ms;">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot" aria-hidden="true"></div>
             <div class="glass-card p-6">
               <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase mb-1 block">Step 02</span>
               <h3 class="text-xl font-bold text-white mb-2">Guided Practice</h3>
               <p class="text-sm text-slate-400">Interactive classroom sessions where students solve problems under expert supervision, applying what they've learned.</p>
             </div>
           </div>
-          <!-- Step 3 -->
           <div class="timeline-item relative mb-12 reveal-scroll" style="transition-delay: 200ms;">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot" aria-hidden="true"></div>
             <div class="glass-card p-6">
               <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-1 block">Step 03</span>
               <h3 class="text-xl font-bold text-white mb-2">Continuous Assessment</h3>
               <p class="text-sm text-slate-400">Regular tests and assignments designed on CBSE/UP Board patterns to track progress and identify weak areas.</p>
             </div>
           </div>
-          <!-- Step 4 -->
           <div class="timeline-item relative reveal-scroll" style="transition-delay: 300ms;">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot" aria-hidden="true"></div>
             <div class="glass-card p-6">
               <span class="text-xs font-bold text-amber-400 tracking-wider uppercase mb-1 block">Step 04</span>
               <h3 class="text-xl font-bold text-white mb-2">Doubt Resolution</h3>
@@ -461,27 +459,26 @@
           <p class="text-slate-400">A glimpse into our premium learning environment and academic activities.</p>
         </div>
 
-        <!-- Note: Using placeholder images from Unsplash for demonstration. Replace with actual images -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden">
+          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Smart Classroom Setup">
             <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Smart Classroom" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Smart Classroom Setup" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span class="text-white font-bold text-sm">Smart Classroom Setup</span>
               </div>
             </div>
           </div>
-          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 100ms;">
+          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 100ms;" tabindex="0" role="button" aria-label="View Study Area">
             <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80" alt="Study Area" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80" alt="Quiet Study Zones" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span class="text-white font-bold text-sm">Quiet Study Zones</span>
               </div>
             </div>
           </div>
-          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 200ms;">
+          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 200ms;" tabindex="0" role="button" aria-label="View Doubt Session">
             <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Doubt Session" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Doubt Clearing Sessions" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span class="text-white font-bold text-sm">Doubt Clearing Sessions</span>
               </div>
@@ -501,39 +498,36 @@
         </div>
 
         <div class="space-y-4">
-          <!-- FAQ 1 -->
           <div class="glass-card reveal-scroll overflow-hidden">
-            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false" aria-controls="faq-1">
               <span class="font-bold text-white text-lg">What classes and boards do you cover?</span>
-              <svg class="faq-icon w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              <svg class="faq-icon w-5 h-5 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
-            <div class="faq-content">
+            <div id="faq-1" class="faq-content">
               <div class="faq-inner px-6 pb-5 text-slate-300">
                 We provide comprehensive coaching for students in Classes 6 through 12. We cater to both CBSE and UP Board curricula, ensuring board-specific preparation for our students.
               </div>
             </div>
           </div>
           
-          <!-- FAQ 2 -->
           <div class="glass-card reveal-scroll overflow-hidden" style="transition-delay: 100ms;">
-            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false" aria-controls="faq-2">
               <span class="font-bold text-white text-lg">Do you offer individual subject tuition?</span>
-              <svg class="faq-icon w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              <svg class="faq-icon w-5 h-5 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
-            <div class="faq-content">
+            <div id="faq-2" class="faq-content">
               <div class="faq-inner px-6 pb-5 text-slate-300">
                 Yes. While we offer full combination packages (like PCM, PCB, PCMB, or Commerce), students can also enroll for individual subjects based on their specific needs and learning gaps.
               </div>
             </div>
           </div>
 
-          <!-- FAQ 3 -->
           <div class="glass-card reveal-scroll overflow-hidden" style="transition-delay: 200ms;">
-            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false" aria-controls="faq-3">
               <span class="font-bold text-white text-lg">How do I get the fee structure?</span>
-              <svg class="faq-icon w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              <svg class="faq-icon w-5 h-5 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
-            <div class="faq-content">
+            <div id="faq-3" class="faq-content">
               <div class="faq-inner px-6 pb-5 text-slate-300">
                 Our fee structure depends on the class and the subjects chosen. Please submit an enquiry via our WhatsApp form or call us directly at +91 92196 26863, and our team will share the detailed fee breakdown.
               </div>
@@ -581,22 +575,22 @@
           <div class="glass-card p-6 sm:p-8 reveal-scroll" style="transition-delay: 100ms;">
             <h3 class="text-xl font-bold text-white mb-6">Send an Enquiry</h3>
             
-            <form id="enquiry-form" class="space-y-4">
+            <form id="enquiry-form" class="space-y-4" novalidate>
               <div>
                 <label for="name" class="block text-xs font-medium text-slate-400 mb-1">Student Name <span class="text-rose-400">*</span></label>
-                <input type="text" id="name" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all" placeholder="Enter full name">
+                <input type="text" id="name" name="name" required autocomplete="name" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all" placeholder="Enter full name">
               </div>
               
               <div>
                 <label for="phone" class="block text-xs font-medium text-slate-400 mb-1">Phone Number <span class="text-rose-400">*</span></label>
-                <input type="tel" id="phone" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all" placeholder="10-digit mobile number">
+                <input type="tel" id="phone" name="phone" required autocomplete="tel" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all" placeholder="10-digit mobile number">
                 <p id="phone-error" class="text-xs text-rose-400 mt-1 hidden">Please enter a valid 10-digit Indian mobile number.</p>
               </div>
 
-              <div class="grid grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="student-class" class="block text-xs font-medium text-slate-400 mb-1">Class <span class="text-rose-400">*</span></label>
-                  <select id="student-class" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
+                  <select id="student-class" name="student-class" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
                     <option value="" disabled selected>Select Class</option>
                     <option value="Class 6">Class 6</option>
                     <option value="Class 7">Class 7</option>
@@ -610,7 +604,7 @@
                 </div>
                 <div>
                   <label for="board" class="block text-xs font-medium text-slate-400 mb-1">Board <span class="text-rose-400">*</span></label>
-                  <select id="board" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
+                  <select id="board" name="board" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
                     <option value="" disabled selected>Select Board</option>
                     <option value="CBSE">CBSE</option>
                     <option value="UP Board">UP Board</option>
@@ -621,7 +615,7 @@
               <!-- Conditional Subject Dropdown -->
               <div id="subject-container" class="hidden">
                 <label for="subject" class="block text-xs font-medium text-slate-400 mb-1">Stream / Subject Focus <span class="text-rose-400">*</span></label>
-                <select id="subject" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
+                <select id="subject" name="subject" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
                   <option value="" disabled selected>Select Stream</option>
                   <option value="PCM (Science)">PCM (Science)</option>
                   <option value="PCB (Science)">PCB (Science)</option>
@@ -656,10 +650,10 @@
         
         <!-- Social Links -->
         <div class="flex items-center gap-6">
-          <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-500 transition-colors transform hover:-translate-y-1" aria-label="Instagram">
+          <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-500 transition-colors transform hover:-translate-y-1" aria-label="Visit our Instagram">
             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
-          <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-500 transition-colors transform hover:-translate-y-1" aria-label="WhatsApp">
+          <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-500 transition-colors transform hover:-translate-y-1" aria-label="Chat with us on WhatsApp">
             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12.031 0C5.431 0 0 5.43 0 12.031c0 2.12.553 4.173 1.602 5.977L.461 23.539l5.672-1.487A11.967 11.967 0 0012.031 24c6.6 0 12.031-5.43 12.031-12.031C24.062 5.43 18.631 0 12.031 0z"/></svg>
           </a>
         </div>
@@ -687,11 +681,11 @@
 
   <!-- LIGHTBOX MODAL -->
   <div id="lightbox" class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-md items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Image Lightbox">
-    <button id="lb-close" class="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors z-10" aria-label="Close">
+    <button id="lb-close" class="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Close Lightbox">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
     
-    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-10" aria-label="Previous Image">
+    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Previous Image">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
     </button>
     
@@ -700,7 +694,7 @@
       <p id="lb-caption" class="text-white text-center mt-4 text-lg font-medium"></p>
     </div>
     
-    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-10" aria-label="Next Image">
+    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Next Image">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
     </button>
   </div>
@@ -730,7 +724,7 @@
         moveIndicator(activeIndicator, link);
       };
 
-      // Set initial position
+      // Initial setup
       const initialActive = document.querySelector('.nav-link.active') || navLinks[0];
       if (initialActive) {
         activeIndicator.style.transition = 'none';
@@ -755,7 +749,7 @@
         desktopNav.addEventListener('mouseleave', () => hoverIndicator.style.opacity = '0');
       }
 
-      // Intersection Observer for Active Nav Link
+      // Observer for Scroll Spy
       const sections = document.querySelectorAll('section[id]');
       const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -796,7 +790,7 @@
         }
       });
 
-      // --- 4. Staggered Scroll Reveal ---
+      // --- 4. Scroll Reveal Animations ---
       const revealElements = document.querySelectorAll('.reveal-scroll');
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -805,7 +799,7 @@
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+      }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
       
       revealElements.forEach(el => revealObserver.observe(el));
 
@@ -832,7 +826,7 @@
         if (entries[0].isIntersecting && !hasCounted) {
           counters.forEach(counter => {
             const target = +counter.getAttribute('data-target');
-            animateValue(counter, 0, target, 2000); // 2 second duration
+            animateValue(counter, 0, target, 2000); 
           });
           hasCounted = true;
         }
@@ -845,7 +839,7 @@
       faqButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const expanded = btn.getAttribute('aria-expanded') === 'true';
-          // Close all others
+          // Close all others for accordion effect
           faqButtons.forEach(b => {
             b.setAttribute('aria-expanded', 'false');
             b.nextElementSibling.classList.remove('open');
@@ -858,16 +852,26 @@
         });
       });
 
-      // --- 7. Interactive Class Cards ---
-      const classCards = document.querySelectorAll('.class-card');
-      classCards.forEach(card => {
-        card.addEventListener('click', () => {
-          const list = card.querySelector('.subject-list');
-          if (list) list.classList.toggle('hidden');
+      // --- 7. Interactive Class Cards (Accessible) ---
+      const classButtons = document.querySelectorAll('.class-card button');
+      classButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          const content = document.getElementById(btn.getAttribute('aria-controls'));
+          const icon = btn.querySelector('.expand-icon');
+          
+          btn.setAttribute('aria-expanded', !isExpanded);
+          content.classList.toggle('hidden');
+          
+          if (!isExpanded) {
+            icon.style.transform = 'rotate(180deg)';
+          } else {
+            icon.style.transform = 'rotate(0deg)';
+          }
         });
       });
 
-      // --- 8. Back to Top & Floating Action ---
+      // --- 8. Back to Top ---
       const backToTop = document.getElementById('back-to-top');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -888,7 +892,6 @@
       const phoneInput = document.getElementById('phone');
       const phoneError = document.getElementById('phone-error');
 
-      // Conditional Subject Dropdown
       classSelect.addEventListener('change', (e) => {
         const val = e.target.value;
         if (val === 'Class 11' || val === 'Class 12' || val === 'CUET') {
@@ -897,20 +900,20 @@
         } else {
           subjectContainer.classList.add('hidden');
           subjectSelect.required = false;
-          subjectSelect.value = ''; // Reset
+          subjectSelect.value = ''; 
         }
       });
 
-      // Form Submit
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Phone Validation
         const phoneValue = phoneInput.value.trim();
-        const phoneRegex = /^[6-9]\d{9}$/; // Validates 10-digit Indian mobile
+        const phoneRegex = /^[6-9]\d{9}$/; 
+        
         if (!phoneRegex.test(phoneValue)) {
           phoneError.classList.remove('hidden');
           phoneInput.classList.add('border-rose-500');
+          phoneInput.focus();
           return;
         } else {
           phoneError.classList.add('hidden');
@@ -926,7 +929,6 @@
           finalSubject = subjectSelect.value;
         }
 
-        // Professional WhatsApp Message
         const message = 
           `*🎓 NEW ADMISSION ENQUIRY*\n\n` +
           `*👤 Student Name:* ${name}\n` +
@@ -949,38 +951,39 @@
       const lbPrev = document.getElementById('lb-prev');
       const lbNext = document.getElementById('lb-next');
       let currentImgIndex = 0;
+      let lastFocusedElement = null;
 
       const updateLightbox = (index) => {
         const item = galleryItems[index];
         const img = item.querySelector('img');
-        const caption = item.querySelector('span').innerText;
+        const caption = item.getAttribute('aria-label') || img.alt;
         
-        lbImg.src = img.src.replace('w=600', 'w=1200'); // Load higher res for lightbox
+        lbImg.src = img.src.replace('w=600', 'w=1200'); 
         lbImg.alt = img.alt;
         lbCaption.innerText = caption;
       };
 
-      const openLightbox = (index) => {
+      const openLightbox = (index, triggerElement) => {
+        lastFocusedElement = triggerElement;
         currentImgIndex = index;
         updateLightbox(currentImgIndex);
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden'; 
         lbClose.focus();
       };
 
       const closeLightbox = () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-        galleryItems[currentImgIndex].focus(); // Return focus
+        if (lastFocusedElement) lastFocusedElement.focus();
       };
 
       galleryItems.forEach((item, index) => {
-        item.setAttribute('tabindex', '0'); // Make accessible via keyboard
-        item.addEventListener('click', () => openLightbox(index));
+        item.addEventListener('click', () => openLightbox(index, item));
         item.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            openLightbox(index);
+            openLightbox(index, item);
           }
         });
       });
@@ -1006,4 +1009,4 @@
     });
   </script>
 </body>
-                                                                 </html>
+  </html>
