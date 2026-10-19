@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth no-js">
+<html lang="en" class="dark scroll-smooth">
 <head>
-  <script>document.documentElement.classList.remove('no-js');</script>
+  <script>
+    // Safely flag that JS is running to prevent invisible content if JS fails later
+    document.documentElement.classList.add('js-enabled');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -44,7 +47,11 @@
     }
 
     html {
-      scroll-padding-top: 90px; /* Prevents sticky header from hiding section titles */
+      scroll-padding-top: 90px; 
+    }
+
+    section {
+      scroll-margin-top: 90px; /* Extra safety for anchor links */
     }
 
     body {
@@ -90,9 +97,9 @@
     .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
 
     /* Scroll Reveal Fallback Logic */
-    .reveal-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-    .reveal-scroll.is-visible { opacity: 1; transform: translateY(0); }
-    .no-js .reveal-scroll { opacity: 1; transform: none; }
+    .reveal-scroll { transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .js-enabled .reveal-scroll { opacity: 0; transform: translateY(30px); }
+    .js-enabled .reveal-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
     .float-icon { position: absolute; color: rgba(56, 189, 248, 0.05); font-size: 5rem; font-weight: 800; pointer-events: none; z-index: 0; user-select: none; }
     .float-1 { top: 15%; left: 5%; animation: floatSymbol 10s ease-in-out infinite; }
@@ -120,11 +127,17 @@
     .timeline-item:last-child::before { display: none; }
     .timeline-dot { position: absolute; left: -1.75rem; top: 0.25rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--accent-cyan); border: 3px solid var(--bg-deep); box-shadow: 0 0 10px var(--accent-cyan); }
 
+    /* Safe area for floating buttons on mobile */
+    .floating-actions {
+      bottom: calc(1.5rem + env(safe-area-inset-bottom));
+      right: calc(1.5rem + env(safe-area-inset-right));
+    }
+
     /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       #nav-active-indicator, #nav-hover-indicator { transition: none !important; }
-      .reveal-scroll { opacity: 1 !important; transform: none !important; }
+      .js-enabled .reveal-scroll { opacity: 1 !important; transform: none !important; }
       .float-icon { display: none; }
     }
   </style>
@@ -134,8 +147,8 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Ambient Background Orbs -->
-  <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-sky-500/5 blur-[120px] pointer-events-none z-0"></div>
-  <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-sky-500/5 blur-[120px] pointer-events-none z-0" aria-hidden="true"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none z-0" aria-hidden="true"></div>
 
   <!-- TOP BANNER -->
   <aside id="top-banner" class="relative z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5 px-4 py-2 text-xs sm:text-sm text-center">
@@ -183,7 +196,8 @@
 
       <!-- MOBILE MENU TOGGLE -->
       <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-300 hover:text-white relative z-50 focus:outline-none" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <svg id="icon-hamburger" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
     </div>
 
@@ -217,7 +231,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="space-y-8">
             <div class="reveal-hero delay-1 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-500/10 text-xs sm:text-sm font-semibold text-sky-300">
-              <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+              <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse" aria-hidden="true"></span>
               Classes 6–12 • CBSE & UP Board
             </div>
             
@@ -248,19 +262,19 @@
             <div class="glass-card p-8 relative border-white/10 grid grid-cols-2 gap-6">
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Years of Excellence</span>
-                <div class="font-display text-4xl font-extrabold text-white counter">XX</div>
+                <div class="font-display text-4xl font-extrabold text-white">XX</div>
               </div>
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Students Taught</span>
-                <div class="font-display text-4xl font-extrabold text-white counter">XX</div>
+                <div class="font-display text-4xl font-extrabold text-white">XX</div>
               </div>
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Expert Faculty</span>
-                <div class="font-display text-4xl font-extrabold text-white counter" data-target="6">0</div>
+                <div class="font-display text-4xl font-extrabold text-white">6</div>
               </div>
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Success Rate</span>
-                <div class="font-display text-4xl font-extrabold text-emerald-400 counter">XX%</div>
+                <div class="font-display text-4xl font-extrabold text-emerald-400">XX%</div>
               </div>
             </div>
             <p class="text-center text-[10px] text-slate-500 mt-2 italic">*Figures pending institute confirmation.</p>
@@ -615,7 +629,7 @@
                     <option value="CUET">CUET</option>
                   </select>
                 </div>
-                <div>
+                <div id="board-container">
                   <label for="board" class="block text-xs font-medium text-slate-400 mb-1">Board <span class="text-rose-400">*</span></label>
                   <select id="board" name="board" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
                     <option value="" disabled selected>Select Board</option>
@@ -664,7 +678,6 @@
         
         <!-- Social Links & Directions -->
         <div class="flex flex-col sm:flex-row items-center gap-6">
-          <!-- Get Directions -->
           <a href="https://share.google/JZmOcbBItSjJCyTlF" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors flex items-center gap-2 text-sm font-medium">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             Get Directions
@@ -689,7 +702,7 @@
   </footer>
 
   <!-- FLOATING ACTIONS -->
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+  <div class="fixed floating-actions z-50 flex flex-col gap-3">
     <!-- Back to Top -->
     <button id="back-to-top" class="w-12 h-12 rounded-full bg-slate-800 border border-white/10 text-white flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-slate-700 hover:-translate-y-1" aria-label="Back to top">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
@@ -785,21 +798,24 @@
       
       sections.forEach(sec => sectionObserver.observe(sec));
 
-      // --- 3. Mobile Menu (Upgraded CSS Grid Animation) ---
+      // --- 3. Mobile Menu ---
       const mobileBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileLinks = document.querySelectorAll('.mobile-link');
+      const iconHamburger = document.getElementById('icon-hamburger');
+      const iconClose = document.getElementById('icon-close');
 
       const toggleMenu = (show) => {
         mobileMenu.classList.toggle('open', show);
         mobileMenu.setAttribute('aria-hidden', show ? 'false' : 'true');
         mobileBtn.setAttribute('aria-expanded', show ? 'true' : 'false');
         
-        // Swap icon
         if (show) {
-          mobileBtn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+          iconHamburger.classList.add('hidden');
+          iconClose.classList.remove('hidden');
         } else {
-          mobileBtn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+          iconHamburger.classList.remove('hidden');
+          iconClose.classList.add('hidden');
         }
       };
 
@@ -815,51 +831,35 @@
         }
       });
 
-      // --- 4. Scroll Reveal Animations ---
+      // --- 4. Scroll Reveal Animations & Fallback ---
       const revealElements = document.querySelectorAll('.reveal-scroll');
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
       
-      revealElements.forEach(el => revealObserver.observe(el));
-
-      // --- 5. Counter Animation (requestAnimationFrame) ---
-      const counters = document.querySelectorAll('.counter[data-target]');
-      let hasCounted = false;
-
-      const animateValue = (obj, start, end, duration) => {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          obj.innerHTML = Math.floor(progress * (end - start) + start);
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          } else {
-            obj.innerHTML = end;
-          }
-        };
-        window.requestAnimationFrame(step);
-      };
-
-      const counterObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !hasCounted) {
-          counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            animateValue(counter, 0, target, 2000); 
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
           });
-          hasCounted = true;
-        }
-      }, { threshold: 0.5 });
-      
-      if (counters.length > 0) counterObserver.observe(counters[0].closest('.grid'));
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
 
-      // --- 6. FAQ Accordion ---
+        // Fallback: Force reveal elements if they haven't appeared after 3 seconds (e.g. slow load, observer failure)
+        setTimeout(() => {
+          revealElements.forEach(el => {
+            if (!el.classList.contains('is-visible')) {
+              el.classList.add('is-visible');
+            }
+          });
+        }, 3000);
+      } else {
+        // Fallback if IntersectionObserver is completely unsupported
+        revealElements.forEach(el => el.classList.add('is-visible'));
+      }
+
+      // --- 5. FAQ Accordion ---
       const faqButtons = document.querySelectorAll('.faq-btn');
       faqButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -875,7 +875,7 @@
         });
       });
 
-      // --- 7. Interactive Class Cards (Accessible) ---
+      // --- 6. Interactive Class Cards ---
       const classButtons = document.querySelectorAll('.class-card button');
       classButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -895,7 +895,7 @@
         });
       });
 
-      // --- 8. Back to Top ---
+      // --- 7. Back to Top ---
       const backToTop = document.getElementById('back-to-top');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -903,14 +903,17 @@
         } else {
           backToTop.classList.add('opacity-0', 'pointer-events-none');
         }
-      });
+      }, { passive: true });
+      
       backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // --- 9. Form Logic & WhatsApp Generation ---
+      // --- 8. Form Logic & WhatsApp Generation ---
       const form = document.getElementById('enquiry-form');
       const classSelect = document.getElementById('student-class');
+      const boardContainer = document.getElementById('board-container');
+      const boardSelect = document.getElementById('board');
       const subjectContainer = document.getElementById('subject-container');
       const subjectSelect = document.getElementById('subject');
       const phoneInput = document.getElementById('phone');
@@ -918,6 +921,8 @@
 
       classSelect.addEventListener('change', (e) => {
         const val = e.target.value;
+        
+        // Handle Stream / Subject
         if (val === 'Class 11' || val === 'Class 12' || val === 'CUET') {
           subjectContainer.classList.remove('hidden');
           subjectSelect.required = true;
@@ -927,6 +932,16 @@
           subjectSelect.required = false;
           subjectSelect.value = ''; 
           subjectSelect.setAttribute('aria-hidden', 'true');
+        }
+
+        // Handle Board (CUET does not require a school board)
+        if (val === 'CUET') {
+          boardContainer.classList.add('hidden');
+          boardSelect.required = false;
+          boardSelect.value = '';
+        } else {
+          boardContainer.classList.remove('hidden');
+          boardSelect.required = true;
         }
       });
 
@@ -948,8 +963,8 @@
           phoneInput.classList.remove('border-rose-500');
         }
 
-        const name = document.getElementById('name').value;
-        const board = document.getElementById('board').value;
+        const name = document.getElementById('name').value.trim();
+        const board = boardSelect.value;
         const studentClass = classSelect.value;
         
         let finalSubject = "All Subjects (Foundation/Board)";
@@ -957,20 +972,23 @@
           finalSubject = subjectSelect.value;
         }
 
-        const message = 
-          `*🎓 NEW ADMISSION ENQUIRY*\n\n` +
-          `*👤 Student Name:* ${name}\n` +
-          `*📞 Contact Number:* ${cleanPhone}\n` +
-          `*🏫 Class:* ${studentClass}\n` +
-          `*📖 Board:* ${board}\n` +
-          `*📚 Subjects/Stream:* ${finalSubject}\n\n` +
-          `_Sent from New Ambition Tutorials Website_`;
+        let message = `*🎓 NEW ADMISSION ENQUIRY*\n\n`;
+        message += `*👤 Student Name:* ${name}\n`;
+        message += `*📞 Contact Number:* ${cleanPhone}\n`;
+        message += `*🏫 Class:* ${studentClass}\n`;
+        
+        if (studentClass !== 'CUET' && board) {
+          message += `*📖 Board:* ${board}\n`;
+        }
+        
+        message += `*📚 Subjects/Stream:* ${finalSubject}\n\n`;
+        message += `_Sent from New Ambition Tutorials Website_`;
 
         const url = `https://wa.me/919219626863?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
       });
 
-      // --- 10. Lightbox Logic (With Focus Trap) ---
+      // --- 9. Lightbox Logic (With Focus Trap) ---
       const lightbox = document.getElementById('lightbox');
       const lbImg = document.getElementById('lb-img');
       const lbCaption = document.getElementById('lb-caption');
@@ -1028,8 +1046,10 @@
         updateLightbox(currentImgIndex);
       });
 
-      // Focus Trap inside Lightbox
-      lightbox.addEventListener('keydown', (e) => {
+      // Focus Trap and Key Navigation (Bound to document, active only when lightbox is open)
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
         if (e.key === 'Escape') {
           closeLightbox();
           return;
@@ -1059,4 +1079,4 @@
     });
   </script>
 </body>
-  </html>
+                                                                                             </html>
