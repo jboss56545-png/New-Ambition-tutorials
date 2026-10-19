@@ -1,211 +1,254 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New Ambition Tutorials | Classes 6–12 Tuition (CBSE & UP Board)</title>
-  <meta name="description" content="New Ambition Tutorials offers concept-focused tuition for Classes 6–12 covering CBSE and UP Board curriculum across Physics, Chemistry, Mathematics, Biology, Commerce, Hindi, and English." />
   
+  <!-- SEO & Metadata -->
+  <title>New Ambition Tutorials | Premium Tuition for Classes 6–12 (CBSE & UP Board)</title>
+  <meta name="description" content="New Ambition Tutorials offers concept-focused tuition for Classes 6–12 covering CBSE and UP Board curriculum across Physics, Chemistry, Mathematics, Biology, Commerce, Hindi, and English. Expert faculty and result-oriented preparation." />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="New Ambition Tutorials | Classes 6–12 Tuition" />
+  <meta property="og:description" content="Build Strong Concepts. Shape Your Ambition. Personalised tuition in Science, Commerce, and Languages." />
+  <meta property="og:url" content="https://new-ambition-tutorials.vercel.app/" />
+  <meta property="og:site_name" content="New Ambition Tutorials" />
+  <meta name="theme-color" content="#050914" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiMwRjE3MkEiLz48dGV4dCB4PSIzMiIgeT0iNDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzM4QkRGOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TkFUPC90ZXh0Pjwvc3ZnPg==" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 
   <style>
     :root {
       --bg-deep: #050914;
-      --bg-navy: #091124;
       --glass-bg: rgba(15, 23, 42, 0.62);
       --glass-border: rgba(255, 255, 255, 0.12);
       --glass-border-hover: rgba(56, 189, 248, 0.42);
       --glass-shadow: 0 20px 45px -15px rgba(2, 6, 23, 0.72);
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
       --accent-cyan: #38bdf8;
-      --accent-indigo: #818cf8;
-      --radius-card: 18px;
       --font-sans: 'Inter', sans-serif;
       --font-display: 'Plus Jakarta Sans', sans-serif;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); }
-    
     body {
-      margin: 0; padding: 0; background-color: var(--bg-deep);
+      margin: 0; padding: 0; background-color: var(--bg-deep); font-family: var(--font-sans);
       background-image:
-        radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.13) 0%, transparent 38%),
-        radial-gradient(circle at 88% 16%, rgba(99, 102, 241, 0.15) 0%, transparent 42%),
-        radial-gradient(circle at 50% 55%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 82% 88%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-        linear-gradient(180deg, #050914 0%, #091124 45%, #070d1d 100%);
-      background-attachment: fixed; color: var(--text-primary); line-height: 1.6; overflow-x: hidden; min-height: 100vh;
-    }
-
-    .bg-grid-pattern {
-      background-size: 44px 44px;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+      background-attachment: fixed; color: var(--text-primary); line-height: 1.6;
+      overflow-x: hidden; min-height: 100vh;
     }
 
     h1, h2, h3, h4, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
-    :focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 4px; }
 
+    /* Accessibility Skip Link */
     .skip-link { position: absolute; top: -100px; left: 16px; z-index: 9999; background: var(--accent-cyan); color: #020617; padding: 10px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: top 0.2s ease; }
     .skip-link:focus { top: 16px; }
 
-    .glass-nav { background: rgba(7, 13, 29, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.65); }
-    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); border-radius: var(--radius-card); transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, background-color 0.25s ease; }
-    .glass-card-interactive:hover { transform: translateY(-3px); border-color: var(--glass-border-hover); background: rgba(30, 41, 59, 0.58); }
-    .glass-panel-subtle { background: rgba(15, 23, 42, 0.42); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 12px; }
+    /* Glassmorphism */
+    .glass-nav { background: rgba(5, 9, 20, 0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); border-radius: 18px; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+    .glass-card-hover:hover { transform: translateY(-4px); border-color: var(--glass-border-hover); box-shadow: 0 25px 50px -12px rgba(2, 6, 23, 0.8), 0 0 20px rgba(56, 189, 248, 0.1); }
     
-    .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.22); box-shadow: 0 10px 25px -6px rgba(14, 165, 233, 0.45); transition: all 0.2s ease; }
-    .btn-primary:hover { background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); transform: translateY(-1px); }
-    .btn-whatsapp { background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.22); box-shadow: 0 10px 25px -6px rgba(16, 185, 129, 0.4); transition: all 0.2s ease; }
-    .btn-whatsapp:hover { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); transform: translateY(-1px); }
-    .btn-glass { background: rgba(30, 41, 59, 0.65); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.16); transition: all 0.2s ease; }
-    .btn-glass:hover { background: rgba(51, 65, 85, 0.75); border-color: rgba(56, 189, 248, 0.45); }
+    /* Buttons */
+    .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%); color: #fff; box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4); transition: all 0.3s ease; }
+    .btn-primary:hover { background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); transform: translateY(-2px); }
+    .btn-whatsapp { background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #fff; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4); transition: all 0.3s ease; }
+    .btn-whatsapp:hover { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); transform: translateY(-2px); }
 
-    /* ELECTRIC NAVIGATOR CSS */
+    /* Electric Navigator */
     #desktop-nav { position: relative; }
     .nav-link { position: relative; z-index: 10; color: var(--text-secondary); transition: color 0.3s ease; }
-    .nav-link:hover, .nav-link.active { color: #ffffff; }
-    #nav-active-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background: #ffffff; border-radius: 2px; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), width 0.35s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform, width; z-index: 1; box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
-    #nav-hover-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background: var(--accent-cyan); border-radius: 2px; box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan); transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), width 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease; will-change: transform, width, opacity; z-index: 0; opacity: 0; pointer-events: none; }
+    .nav-link:hover, .nav-link.active { color: #fff; }
+    #nav-active-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), width 0.35s cubic-bezier(0.25, 1, 0.5, 1); z-index: 1; box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+    #nav-hover-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background: var(--accent-cyan); border-radius: 2px; box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan); transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), width 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease; z-index: 0; opacity: 0; pointer-events: none; }
+
+    /* Animations */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes floatSymbol { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+    @keyframes floatSymbol2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(15px) rotate(-5deg); } }
     
+    .reveal-hero { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
+
+    .reveal-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .reveal-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+    .float-icon { position: absolute; color: rgba(56, 189, 248, 0.08); font-size: 4rem; font-weight: 800; pointer-events: none; z-index: 0; }
+    .float-1 { top: 10%; left: 5%; animation: floatSymbol 8s ease-in-out infinite; }
+    .float-2 { top: 60%; right: 10%; animation: floatSymbol2 10s ease-in-out infinite; font-size: 6rem; }
+    .float-3 { bottom: 10%; left: 40%; animation: floatSymbol 12s ease-in-out infinite; }
+
+    /* FAQ Accordion */
+    .faq-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease-out; }
+    .faq-content.open { grid-template-rows: 1fr; }
+    .faq-inner { overflow: hidden; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-btn[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+
+    /* Lightbox */
+    #lightbox { display: none; opacity: 0; transition: opacity 0.3s ease; }
+    #lightbox.active { display: flex; opacity: 1; }
+
+    /* Timeline */
+    .timeline-item::before { content: ''; position: absolute; left: -1.25rem; top: 0.5rem; bottom: -2rem; width: 2px; background: rgba(56, 189, 248, 0.2); }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-dot { position: absolute; left: -1.75rem; top: 0.25rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--accent-cyan); border: 3px solid var(--bg-deep); box-shadow: 0 0 10px var(--accent-cyan); }
+
+    /* Utilities */
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    
+    /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       #nav-active-indicator, #nav-hover-indicator { transition: none !important; }
-    }
-
-    .placeholder-callout { background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(251, 191, 36, 0.45); border-radius: 12px; color: #fde68a; }
-    .placeholder-tag { display: inline-flex; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #fde68a; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(251, 191, 36, 0.4); border-radius: 9999px; }
-
-    /* Social Media Glow */
-    .social-icon {
-      transition: all 0.3s ease;
-    }
-    .social-icon.insta:hover {
-      color: #E1306C;
-      filter: drop-shadow(0 0 15px rgba(225, 48, 108, 0.6));
-      transform: translateY(-5px);
-    }
-    .social-icon.whats:hover {
-      color: #25D366;
-      filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.6));
-      transform: translateY(-5px);
+      .reveal-scroll { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
-<body class="bg-grid-pattern antialiased selection:bg-sky-500 selection:text-slate-950">
+<body class="antialiased selection:bg-sky-500 selection:text-slate-950 relative">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- TOP NOTICE BANNER -->
-  <aside id="top-notice-banner" class="relative z-50 bg-slate-950/90 border-b border-white/10 px-4 py-2.5 text-xs sm:text-sm">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5">
-        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-500/20 text-sky-300 border border-sky-400/40 shrink-0">Enquiries Open</span>
-        <p class="text-slate-200 font-medium">Academic tuition enquiries open for Classes 6–12 (CBSE & UP Board).</p>
-      </div>
-      <button id="close-notice-btn" type="button" class="p-1 rounded-lg text-slate-400 hover:text-white" aria-label="Dismiss">✕</button>
+  <!-- Ambient Background Orbs -->
+  <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-sky-500/10 blur-[100px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none z-0"></div>
+
+  <!-- TOP BANNER -->
+  <aside id="top-banner" class="relative z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5 px-4 py-2 text-xs sm:text-sm text-center">
+    <div class="flex items-center justify-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <p class="text-slate-300 font-medium">Admissions Open for 2024-25 batch. <a href="#contact" class="text-sky-400 underline underline-offset-4 hover:text-white transition-colors">Enquire Now</a></p>
     </div>
   </aside>
 
-  <!-- HEADER & ELECTRIC NAVIGATION -->
-  <header id="site-header" class="sticky top-0 z-40 glass-nav">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- LOGO SECTION -->
-      <a href="#home" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500/30 via-indigo-600/30 to-slate-900 border border-sky-400/40 flex items-center justify-center shadow-lg shrink-0 overflow-hidden p-1">
-          <!-- Yahan logo.png upload karein assets/images/ folder mein -->
-          <img src="assets/images/logo.png" alt="Ambition Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span class="font-display font-extrabold text-base tracking-tight text-white" style="display:none;">NAT</span>
+      <a href="#home" class="flex items-center gap-3 group relative z-50">
+        <div class="w-11 h-11 rounded-xl bg-slate-800 border border-sky-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.2)] overflow-hidden">
+          <img src="assets/images/logo.png" alt="NAT Logo" class="w-full h-full object-contain p-1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="hidden font-display font-extrabold text-white text-lg">NAT</span>
         </div>
         <div>
-          <span class="font-display font-bold text-base sm:text-lg text-white block leading-tight">New Ambition</span>
-          <span class="text-xs text-sky-300 font-medium block">Tutorials</span>
+          <span class="font-display font-bold text-lg text-white block leading-tight group-hover:text-sky-300 transition-colors">New Ambition</span>
+          <span class="text-xs text-sky-400 font-medium block">Tutorials</span>
         </div>
       </a>
 
-      <!-- DESKTOP NAVIGATION -->
-      <nav id="desktop-nav" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-1 xl:gap-2">
+      <!-- DESKTOP NAV -->
+      <nav id="desktop-nav" aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 xl:gap-2">
         <div id="nav-active-indicator"></div>
         <div id="nav-hover-indicator"></div>
-        
-        <a href="#home" class="nav-link active px-3 py-2 text-sm font-medium rounded-lg">Home</a>
-        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">About Us</a>
-        <a href="#achievements" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Achievements</a>
-        <a href="#faculty" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Our Team</a>
-        <a href="#classes" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Classes</a>
-        <a href="#gallery" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Photos</a>
-        <a href="#reviews" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Reviews</a>
-        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium rounded-lg">Contact</a>
+        <a href="#home" class="nav-link active px-3 py-2 text-sm font-medium">Home</a>
+        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium">About</a>
+        <a href="#faculty" class="nav-link px-3 py-2 text-sm font-medium">Faculty</a>
+        <a href="#classes" class="nav-link px-3 py-2 text-sm font-medium">Classes</a>
+        <a href="#methodology" class="nav-link px-3 py-2 text-sm font-medium">Methodology</a>
+        <a href="#gallery" class="nav-link px-3 py-2 text-sm font-medium">Gallery</a>
+        <a href="#faq" class="nav-link px-3 py-2 text-sm font-medium">FAQ</a>
+        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium">Contact</a>
       </nav>
 
-      <div class="hidden sm:flex items-center gap-2.5">
-        <a href="#contact" class="btn-primary px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5">
-          Enquire Now →
+      <div class="hidden sm:flex items-center gap-3 relative z-50">
+        <a href="#contact" class="btn-primary px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2">
+          Enquire Now
         </a>
       </div>
 
-      <!-- MOBILE MENU BUTTON -->
-      <button id="mobile-menu-btn" type="button" class="lg:hidden btn-glass p-2.5 rounded-xl text-slate-200" aria-expanded="false">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-300 hover:text-white relative z-50" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
 
-    <!-- MOBILE DRAWER -->
-    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-xl px-4 pt-4 pb-6 absolute w-full">
-      <nav class="grid grid-cols-1 gap-1">
-        <a href="#home" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Home</a>
-        <a href="#about" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">About Us</a>
-        <a href="#achievements" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Achievements</a>
-        <a href="#faculty" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Our Team</a>
-        <a href="#classes" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Classes & Subjects</a>
-        <a href="#gallery" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Photos</a>
-        <a href="#reviews" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Reviews</a>
-        <a href="#contact" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10">Contact</a>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/10 shadow-2xl transition-all duration-300 transform origin-top">
+      <nav class="flex flex-col px-4 pt-4 pb-6 gap-2">
+        <a href="#home" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Home</a>
+        <a href="#about" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">About</a>
+        <a href="#faculty" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Faculty</a>
+        <a href="#classes" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Classes</a>
+        <a href="#methodology" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Methodology</a>
+        <a href="#gallery" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Gallery</a>
+        <a href="#faq" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">FAQ</a>
+        <a href="#contact" class="mobile-link px-4 py-3 rounded-lg bg-sky-500/20 text-sky-300 font-bold mt-2">Contact & Enquiry</a>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" class="relative z-10">
     
-    <!-- 1. HOME / DASHBOARD SECTION -->
-    <section id="home" class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-subtle text-xs sm:text-sm font-semibold text-sky-300">
-              <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-              <span>New Ambition Tutorials • Classes 6–12</span>
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-20 pb-24 sm:pt-28 sm:pb-32 overflow-hidden">
+      <!-- Floating Academic Symbols -->
+      <div class="float-icon float-1 font-serif">π</div>
+      <div class="float-icon float-2 font-sans">∑</div>
+      <div class="float-icon float-3 font-serif">∞</div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div class="reveal-hero delay-1 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-500/10 text-xs sm:text-sm font-semibold text-sky-300">
+              <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+              Classes 6–12 • CBSE & UP Board
             </div>
-            <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+            
+            <h1 class="reveal-hero delay-1 font-display text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
               Build Strong Concepts.<br>
-              <span class="bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent block mt-1">Shape Your Ambition.</span>
+              <span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent mt-2 block">Shape Your Ambition.</span>
             </h1>
-            <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed">Personalised tuition for Classes 6–12, covering CBSE and UP Board curriculum in Physics, Chemistry, Mathematics, Biology, Commerce, Hindi, and English.</p>
-            <div class="flex flex-wrap items-center gap-3.5 pt-2">
-              <a href="#classes" class="btn-primary px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold flex items-center gap-2">
-                Explore Classes
+            
+            <p class="reveal-hero delay-2 text-lg text-slate-300 max-w-xl leading-relaxed">
+              Premium tuition for Classes 6–12. We specialise in Science (PCMB), Commerce, Mathematics, and Languages with a focus on conceptual clarity and board excellence.
+            </p>
+            
+            <div class="reveal-hero delay-3 flex flex-wrap gap-4 pt-2">
+              <a href="#classes" class="btn-primary px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
+                Explore Courses
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
-              <a href="https://wa.me/919219626863" target="_blank" class="btn-whatsapp px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold flex items-center gap-2">
-                Enquire on WhatsApp
+              <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                Chat with Us
               </a>
             </div>
           </div>
-          <div class="lg:col-span-5">
-            <div class="glass-card p-6 sm:p-7">
-              <h2 class="text-lg font-bold text-white mb-4 border-b border-white/10 pb-3">Subjects We Teach</h2>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Physics</div>
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Chemistry</div>
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Mathematics</div>
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Biology</div>
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Commerce</div>
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">Hindi</div>
-                <div class="p-3 rounded-xl bg-slate-900/70 border border-white/10 text-center text-sm font-semibold">English</div>
+
+          <!-- Hero Right: Quick Stats Grid -->
+          <div class="reveal-hero delay-3 relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 rounded-3xl blur-2xl transform rotate-3"></div>
+            <div class="glass-card p-8 relative border-white/10 grid grid-cols-2 gap-6">
+              <div class="space-y-1">
+                <span class="text-sm font-medium text-slate-400">Years of Excellence</span>
+                <div class="font-display text-4xl font-extrabold text-white counter" data-target="5">0</div>
+              </div>
+              <div class="space-y-1">
+                <span class="text-sm font-medium text-slate-400">Students Taught</span>
+                <div class="font-display text-4xl font-extrabold text-white counter" data-target="500">0</div>
+                <span class="text-xs text-sky-400">and counting...</span>
+              </div>
+              <div class="space-y-1">
+                <span class="text-sm font-medium text-slate-400">Expert Faculty</span>
+                <div class="font-display text-4xl font-extrabold text-white counter" data-target="6">0</div>
+              </div>
+              <div class="space-y-1">
+                <span class="text-sm font-medium text-slate-400">Success Rate</span>
+                <div class="font-display text-4xl font-extrabold text-emerald-400 counter" data-target="95">0</div>
+                <span class="text-xs text-slate-400">Parent satisfaction</span>
               </div>
             </div>
           </div>
@@ -213,242 +256,348 @@
       </div>
     </section>
 
-    <!-- 2. ACHIEVEMENTS / STATS SECTION -->
-    <section id="achievements" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Our Track Record</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Achievements & Milestones</h2>
-        </div>
-        
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="glass-card p-6 text-center">
-            <div class="text-4xl sm:text-5xl font-extrabold text-sky-400 mb-2 font-display counter-value" data-target="5">0</div>
-            <p class="text-sm font-semibold text-slate-300">Years of Excellence</p>
-          </div>
-          <div class="glass-card p-6 text-center">
-            <div class="text-4xl sm:text-5xl font-extrabold text-indigo-400 mb-2 font-display counter-value" data-target="500">0</div>
-            <p class="text-sm font-semibold text-slate-300">Students Taught</p>
-          </div>
-          <div class="glass-card p-6 text-center">
-            <div class="text-4xl sm:text-5xl font-extrabold text-emerald-400 mb-2 font-display counter-value" data-target="95">0</div>
-            <p class="text-sm font-semibold text-slate-300">Success Rate (%)</p>
-          </div>
-          <div class="glass-card p-6 text-center">
-            <div class="text-4xl sm:text-5xl font-extrabold text-amber-400 mb-2 font-display counter-value" data-target="50">0</div>
-            <p class="text-sm font-semibold text-slate-300">Top Rankers</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. ABOUT US SECTION -->
-    <section id="about" class="py-16 sm:py-20 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-12">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">About Us</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Dedicated Academic Guidance</h2>
-          <p class="text-slate-300 mt-3 text-base leading-relaxed"><strong>New Ambition Tutorials</strong> is an educational coaching institute serving students across Classes 6 to 12 in both <strong>CBSE</strong> and <strong>UP Board</strong> curricula. Our focus is on helping students build clear conceptual foundations across Science, Commerce, Mathematics, and Languages.</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-6">Dedicated Academic Guidance</h2>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            New Ambition Tutorials is a premier coaching institute led by <strong>Manish Mishra</strong> and <strong>Ajay Chaturvedi</strong>. We serve students from Class 6 to 12 across CBSE and UP Board, focusing on building strong conceptual foundations for lifelong success.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- 4. FACULTY & MANAGEMENT SECTION -->
-    <section id="faculty" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+    <!-- FACULTY SECTION -->
+    <section id="faculty" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Meet the Team</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Our Leadership & Faculty</h2>
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Our Team</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Meet the Experts</h2>
         </div>
 
-        <!-- Leadership Row -->
-        <h3 class="text-xl font-bold text-center text-sky-300 mb-6">Leadership & Management</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Manish Mishra -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll">
+            <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 p-1 mb-6">
+              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">MM</div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Manish Mishra</h3>
+            <p class="text-sm text-sky-400 font-semibold mb-4">HOD & Chemistry Faculty</p>
+            <p class="text-sm text-slate-400">Leading the academic curriculum and chemistry department with years of pedagogical expertise.</p>
+          </div>
           
-          <div class="glass-card p-6 text-center">
-            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 p-1 mb-4">
-              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">MM</div>
+          <!-- Ajay Chaturvedi -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
+            <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 p-1 mb-6">
+              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">AC</div>
             </div>
-            <h3 class="text-xl font-bold text-white">Manish Mishra</h3>
-            <p class="text-sm text-sky-400 mb-3 font-semibold">HOD & Chemistry Faculty</p>
-            <p class="text-xs text-slate-400">Leading the academic curriculum and chemistry department.</p>
+            <h3 class="text-xl font-bold text-white mb-1">Ajay Chaturvedi</h3>
+            <p class="text-sm text-emerald-400 font-semibold mb-4">Co-Founder & Math Faculty</p>
+            <p class="text-sm text-slate-400">Guiding students with mathematical precision, logic, and an analytical approach to problem-solving.</p>
           </div>
 
-          <div class="glass-card p-6 text-center">
-            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 p-1 mb-4">
-              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">AC</div>
+          <!-- Sneha Chaturvedi -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
+            <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 p-1 mb-6">
+              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">SC</div>
             </div>
-            <h3 class="text-xl font-bold text-white">Ajay Chaturvedi</h3>
-            <p class="text-sm text-emerald-400 mb-3 font-semibold">Co-Founder & Math Faculty</p>
-            <p class="text-xs text-slate-400">Guiding students with mathematical precision and logic.</p>
+            <h3 class="text-xl font-bold text-white mb-1">Sneha Chaturvedi</h3>
+            <p class="text-sm text-pink-400 font-semibold mb-4">Institute Manager</p>
+            <p class="text-sm text-slate-400">Managing daily operations, admissions, and ensuring a seamless experience for parents and students.</p>
           </div>
 
-          <div class="glass-card p-6 text-center">
-            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 p-1 mb-4">
-              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">SC</div>
+          <!-- Swastik Roy -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+              <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white">Sneha Chaturvedi</h3>
-            <p class="text-sm text-pink-400 mb-3 font-semibold">Institute Manager</p>
-            <p class="text-xs text-slate-400">Managing operations, admissions, and student support.</p>
-          </div>
-        </div>
-
-        <!-- Core Faculty Row (With Images) -->
-        <h3 class="text-xl font-bold text-center text-sky-300 mb-6">Core Faculty</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          
-          <div class="glass-card glass-card-interactive p-6 text-center relative">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-400 p-1 mb-5 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-              <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
-            </div>
-            <h3 class="text-xl font-bold text-white">Swastik Roy</h3>
-            <p class="text-sm text-purple-400 mb-4 font-semibold">Chemistry Educator</p>
+            <h3 class="text-xl font-bold text-white mb-1">Swastik Roy</h3>
+            <p class="text-sm text-purple-400 font-semibold">Chemistry Educator</p>
           </div>
 
-          <div class="glass-card glass-card-interactive p-6 text-center relative">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-emerald-400 p-1 mb-5 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
-              <img src="assets/images/rahul.jpg" alt="Rahul Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Sir&background=10B981&color=fff'">
+          <!-- Rahul Sir -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-emerald-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+              <img src="assets/images/rahul.jpg" alt="Rahul Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Sir&background=10B981&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white">Rahul Sir</h3>
-            <p class="text-sm text-emerald-400 mb-4 font-semibold">Commerce Faculty</p>
+            <h3 class="text-xl font-bold text-white mb-1">Rahul Sir</h3>
+            <p class="text-sm text-emerald-400 font-semibold">Commerce Faculty</p>
           </div>
 
-          <div class="glass-card glass-card-interactive p-6 text-center relative">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-400 p-1 mb-5 shadow-[0_0_20px_rgba(56,189,248,0.4)]">
-              <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0D8ABC&color=fff'">
+          <!-- Pradeep Sir -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+              <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0ea5e9&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white">Pradeep Sir</h3>
-            <p class="text-sm text-sky-400 mb-4 font-semibold">Physics Faculty</p>
+            <h3 class="text-xl font-bold text-white mb-1">Pradeep Sir</h3>
+            <p class="text-sm text-sky-400 font-semibold">Physics Faculty</p>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 5. CLASSES & SUBJECTS SECTION -->
-    <section id="classes" class="py-16 sm:py-20 border-t border-white/10">
+    <!-- CLASSES & SUBJECTS SECTION -->
+    <section id="classes" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-12">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Curriculum</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Classes & Subjects</h2>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Classes & Subjects</h2>
+          <p class="text-slate-400">Click on a class group to explore the subjects offered.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="glass-card p-6">
-            <h3 class="text-xl font-bold text-sky-400 mb-2">Classes 6–8</h3>
-            <p class="text-sm text-slate-300 mb-3">Foundation building with focus on core concepts across all subjects.</p>
-          </div>
-          <div class="glass-card p-6">
-            <h3 class="text-xl font-bold text-indigo-400 mb-2">Classes 9–10</h3>
-            <p class="text-sm text-slate-300 mb-3">Board-oriented preparation and rigorous practice for CBSE and UP Board.</p>
-          </div>
-          <div class="glass-card p-6">
-            <h3 class="text-xl font-bold text-emerald-400 mb-2">Classes 11–12</h3>
-            <p class="text-sm text-slate-300 mb-3">Advanced PCMB, Commerce and subject specialization for competitive exams.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. PHOTOS / GALLERY SECTION -->
-    <section id="gallery" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-12 text-center mx-auto">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Gallery</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Our Institute Photos</h2>
-        </div>
-        
-        <div class="glass-card p-10 max-w-2xl mx-auto text-center border-dashed border-2 border-white/20">
-          <div class="text-4xl mb-4">📸</div>
-          <h3 class="text-lg font-bold text-white mb-2">Real Photos Coming Soon</h3>
-          <p class="text-sm text-slate-400">We believe in transparency. Actual classroom photos and faculty images will be uploaded shortly.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. REVIEWS SECTION -->
-    <section id="reviews" class="py-16 sm:py-20 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-12 text-center mx-auto">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Testimonials</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Student & Parent Reviews</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div class="glass-card p-6">
-            <div class="text-amber-400 mb-2">★★★★★</div>
-            <p class="text-sm text-slate-300 italic mb-4">"The concept clarity for Physics and Chemistry is unmatched. Manish sir ensures every doubt is cleared."</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white">R</div>
-              <div>
-                <p class="text-sm font-bold text-white">Rahul S.</p>
-                <p class="text-xs text-slate-400">Class 12 Student</p>
-              </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <!-- Classes 6-8 -->
+          <div class="glass-card glass-card-hover overflow-hidden group reveal-scroll cursor-pointer class-card">
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-sky-400 mb-3">Classes 6–8</h3>
+              <p class="text-slate-300 mb-4">Foundation building with focus on core concepts across all subjects.</p>
+              <button class="text-sm font-semibold text-white flex items-center gap-1 group-hover:text-sky-300 transition-colors">
+                View Subjects <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </button>
+            </div>
+            <!-- Expandable Subject List -->
+            <div class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-2">
+              <div class="text-sm text-slate-300 flex justify-between"><span>Mathematics</span> <span class="text-sky-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>Science (Phy/Chem/Bio)</span> <span class="text-sky-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>English</span> <span class="text-sky-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>Hindi</span> <span class="text-sky-400">✓</span></div>
             </div>
           </div>
-          <div class="glass-card p-6">
-            <div class="text-amber-400 mb-2">★★★★★</div>
-            <p class="text-sm text-slate-300 italic mb-4">"My daughter's performance improved drastically. The regular tests and communication gave me peace of mind."</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white">P</div>
-              <div>
-                <p class="text-sm font-bold text-white">Priya V.</p>
-                <p class="text-xs text-slate-400">Parent</p>
-              </div>
+
+          <!-- Classes 9-10 -->
+          <div class="glass-card glass-card-hover overflow-hidden group reveal-scroll cursor-pointer class-card" style="transition-delay: 100ms;">
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-indigo-400 mb-3">Classes 9–10</h3>
+              <p class="text-slate-300 mb-4">Board-oriented preparation and rigorous practice for CBSE and UP Board.</p>
+              <button class="text-sm font-semibold text-white flex items-center gap-1 group-hover:text-indigo-300 transition-colors">
+                View Subjects <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </button>
+            </div>
+            <div class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-2">
+              <div class="text-sm text-slate-300 flex justify-between"><span>Mathematics</span> <span class="text-indigo-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>Science (Phy/Chem/Bio)</span> <span class="text-indigo-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>Social Science</span> <span class="text-indigo-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>English & Hindi</span> <span class="text-indigo-400">✓</span></div>
+            </div>
+          </div>
+
+          <!-- Classes 11-12 -->
+          <div class="glass-card glass-card-hover overflow-hidden group reveal-scroll cursor-pointer class-card" style="transition-delay: 200ms;">
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-emerald-400 mb-3">Classes 11–12</h3>
+              <p class="text-slate-300 mb-4">Advanced PCMB, Commerce, and specialized preparation for boards & CUET.</p>
+              <button class="text-sm font-semibold text-white flex items-center gap-1 group-hover:text-emerald-300 transition-colors">
+                View Subjects <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </button>
+            </div>
+            <div class="subject-list hidden bg-slate-900/50 border-t border-white/5 p-6 space-y-2">
+              <div class="text-sm text-slate-300 flex justify-between"><span>Physics & Chemistry</span> <span class="text-emerald-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>Mathematics / Biology</span> <span class="text-emerald-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>Commerce (Accounts/BST)</span> <span class="text-emerald-400">✓</span></div>
+              <div class="text-sm text-slate-300 flex justify-between"><span>CUET Preparation</span> <span class="text-emerald-400">✓</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 8. CONTACT SECTION (SMART WHATSAPP FORM) -->
-    <section id="contact" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
+    <!-- METHODOLOGY SECTION (TIMELINE) -->
+    <section id="methodology" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-12 text-center mx-auto">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Get In Touch</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Admission Enquiry</h2>
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">How We Teach</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Our Teaching Methodology</h2>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div class="glass-card p-8">
-            <h3 class="text-xl font-bold text-white mb-6">Contact Details</h3>
+        <div class="max-w-3xl mx-auto relative pl-8 sm:pl-12 py-4">
+          <!-- Step 1 -->
+          <div class="timeline-item relative mb-12 reveal-scroll">
+            <div class="timeline-dot"></div>
+            <div class="glass-card p-6">
+              <span class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-1 block">Step 01</span>
+              <h3 class="text-xl font-bold text-white mb-2">Concept Clarity</h3>
+              <p class="text-sm text-slate-400">We break down complex topics into digestible fundamentals, ensuring students understand the 'why' before the 'how'.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="timeline-item relative mb-12 reveal-scroll" style="transition-delay: 100ms;">
+            <div class="timeline-dot"></div>
+            <div class="glass-card p-6">
+              <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase mb-1 block">Step 02</span>
+              <h3 class="text-xl font-bold text-white mb-2">Guided Practice</h3>
+              <p class="text-sm text-slate-400">Interactive classroom sessions where students solve problems under expert supervision, applying what they've learned.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="timeline-item relative mb-12 reveal-scroll" style="transition-delay: 200ms;">
+            <div class="timeline-dot"></div>
+            <div class="glass-card p-6">
+              <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-1 block">Step 03</span>
+              <h3 class="text-xl font-bold text-white mb-2">Continuous Assessment</h3>
+              <p class="text-sm text-slate-400">Regular tests and assignments designed on CBSE/UP Board patterns to track progress and identify weak areas.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="timeline-item relative reveal-scroll" style="transition-delay: 300ms;">
+            <div class="timeline-dot"></div>
+            <div class="glass-card p-6">
+              <span class="text-xs font-bold text-amber-400 tracking-wider uppercase mb-1 block">Step 04</span>
+              <h3 class="text-xl font-bold text-white mb-2">Doubt Resolution</h3>
+              <p class="text-sm text-slate-400">Dedicated doubt-clearing sessions and parent-teacher communication to ensure no student is left behind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-20 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Campus Life</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Photo Gallery</h2>
+          <p class="text-slate-400">A glimpse into our premium learning environment and academic activities.</p>
+        </div>
+
+        <!-- Note: Using placeholder images from Unsplash for demonstration. Replace with actual images -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden">
+            <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Smart Classroom" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <span class="text-white font-bold text-sm">Smart Classroom Setup</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 100ms;">
+            <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80" alt="Study Area" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <span class="text-white font-bold text-sm">Quiet Study Zones</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 200ms;">
+            <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Doubt Session" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <span class="text-white font-bold text-sm">Doubt Clearing Sessions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-6 italic">Note: Placeholder images used. Actual institute photos will be updated soon.</p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 border-t border-white/5 bg-slate-900/20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Support</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <div class="glass-card reveal-scroll overflow-hidden">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false">
+              <span class="font-bold text-white text-lg">What classes and boards do you cover?</span>
+              <svg class="faq-icon w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-5 text-slate-300">
+                We provide comprehensive coaching for students in Classes 6 through 12. We cater to both CBSE and UP Board curricula, ensuring board-specific preparation for our students.
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ 2 -->
+          <div class="glass-card reveal-scroll overflow-hidden" style="transition-delay: 100ms;">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false">
+              <span class="font-bold text-white text-lg">Do you offer individual subject tuition?</span>
+              <svg class="faq-icon w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-5 text-slate-300">
+                Yes. While we offer full combination packages (like PCM, PCB, PCMB, or Commerce), students can also enroll for individual subjects based on their specific needs and learning gaps.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="glass-card reveal-scroll overflow-hidden" style="transition-delay: 200ms;">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors focus:outline-none" aria-expanded="false">
+              <span class="font-bold text-white text-lg">How do I get the fee structure?</span>
+              <svg class="faq-icon w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-5 text-slate-300">
+                Our fee structure depends on the class and the subjects chosen. Please submit an enquiry via our WhatsApp form or call us directly at +91 92196 26863, and our team will share the detailed fee breakdown.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact" class="py-20 border-t border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          
+          <!-- Contact Info -->
+          <div class="reveal-scroll">
+            <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Get In Touch</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-6">Start Your Journey With Us</h2>
+            <p class="text-slate-400 mb-8">Have questions about batches, fees, or the curriculum? Reach out to us directly or fill out the enquiry form.</p>
+            
             <div class="space-y-4">
-              <a href="tel:+919219626863" class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/10 hover:border-sky-400/50 transition-colors">
-                <span class="text-2xl">📞</span>
+              <a href="tel:+919219626863" class="glass-card p-4 flex items-center gap-4 hover:border-sky-400/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                </div>
                 <div>
-                  <p class="text-xs text-slate-400">Call Us</p>
-                  <p class="text-base font-bold text-white">+91 92196 26863</p>
+                  <p class="text-xs text-slate-400 font-medium">Call Us Directly</p>
+                  <p class="text-lg font-bold text-white">+91 92196 26863</p>
                 </div>
               </a>
-              <a href="https://wa.me/919219626863" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/10 hover:border-emerald-400/50 transition-colors">
-                <span class="text-2xl">💬</span>
-                <div>
-                  <p class="text-xs text-slate-400">WhatsApp</p>
-                  <p class="text-base font-bold text-white">Chat with us</p>
+              
+              <div class="glass-card p-4 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
-              </a>
+                <div>
+                  <p class="text-xs text-slate-400 font-medium">Visit Us</p>
+                  <p class="text-sm font-bold text-white">Location available on Google Maps</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="glass-card p-8">
-            <h3 class="text-xl font-bold text-white mb-6">Send a Message</h3>
-            <form id="whatsapp-form" class="space-y-4">
-              
+          <!-- Form -->
+          <div class="glass-card p-6 sm:p-8 reveal-scroll" style="transition-delay: 100ms;">
+            <h3 class="text-xl font-bold text-white mb-6">Send an Enquiry</h3>
+            
+            <form id="enquiry-form" class="space-y-4">
               <div>
-                <label class="text-xs text-slate-400 mb-1 block">Student Name *</label>
-                <input type="text" id="form-name" placeholder="Enter name" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+                <label for="name" class="block text-xs font-medium text-slate-400 mb-1">Student Name <span class="text-rose-400">*</span></label>
+                <input type="text" id="name" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all" placeholder="Enter full name">
               </div>
               
               <div>
-                <label class="text-xs text-slate-400 mb-1 block">Contact Number *</label>
-                <input type="tel" id="form-phone" placeholder="10-digit mobile" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+                <label for="phone" class="block text-xs font-medium text-slate-400 mb-1">Phone Number <span class="text-rose-400">*</span></label>
+                <input type="tel" id="phone" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all" placeholder="10-digit mobile number">
+                <p id="phone-error" class="text-xs text-rose-400 mt-1 hidden">Please enter a valid 10-digit Indian mobile number.</p>
               </div>
 
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <label class="text-xs text-slate-400 mb-1 block">Select Class *</label>
-                  <select id="form-class" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
-                    <option value="">Class</option>
+                  <label for="student-class" class="block text-xs font-medium text-slate-400 mb-1">Class <span class="text-rose-400">*</span></label>
+                  <select id="student-class" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
+                    <option value="" disabled selected>Select Class</option>
                     <option value="Class 6">Class 6</option>
                     <option value="Class 7">Class 7</option>
                     <option value="Class 8">Class 8</option>
@@ -460,122 +609,136 @@
                   </select>
                 </div>
                 <div>
-                  <label class="text-xs text-slate-400 mb-1 block">Board *</label>
-                  <select id="form-board" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
-                    <option value="">Select Board</option>
+                  <label for="board" class="block text-xs font-medium text-slate-400 mb-1">Board <span class="text-rose-400">*</span></label>
+                  <select id="board" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
+                    <option value="" disabled selected>Select Board</option>
                     <option value="CBSE">CBSE</option>
                     <option value="UP Board">UP Board</option>
                   </select>
                 </div>
               </div>
 
-              <!-- Subject Container (Only shows for 11, 12, CUET) -->
-              <div id="subject-container" style="display: none;">
-                <label class="text-xs text-slate-400 mb-1 block">Select Stream/Subject *</label>
-                <select id="form-subject" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400">
-                  <option value="">Choose...</option>
-                  <option value="PCM (Physics, Chemistry, Maths)">PCM (Science)</option>
-                  <option value="PCB (Physics, Chemistry, Biology)">PCB (Science)</option>
-                  <option value="PCMB (Physics, Chemistry, Maths, Biology)">PCMB (Science)</option>
+              <!-- Conditional Subject Dropdown -->
+              <div id="subject-container" class="hidden">
+                <label for="subject" class="block text-xs font-medium text-slate-400 mb-1">Stream / Subject Focus <span class="text-rose-400">*</span></label>
+                <select id="subject" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 appearance-none">
+                  <option value="" disabled selected>Select Stream</option>
+                  <option value="PCM (Science)">PCM (Science)</option>
+                  <option value="PCB (Science)">PCB (Science)</option>
+                  <option value="PCMB (Science)">PCMB (Science)</option>
                   <option value="Commerce">Commerce</option>
+                  <option value="CUET Preparation">CUET Preparation</option>
                 </select>
               </div>
 
-              <button type="submit" class="btn-whatsapp w-full py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 mt-2">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
-                Submit Enquiry via WhatsApp
-              </button>
+              <div class="pt-2">
+                <button type="submit" class="btn-whatsapp w-full py-3.5 rounded-lg font-bold flex items-center justify-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                  Submit via WhatsApp
+                </button>
+                <p class="text-center text-xs text-slate-500 mt-3">Your details will be securely sent via WhatsApp.</p>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- 9. SOCIAL MEDIA SECTION -->
-    <section id="socials" class="py-12 border-t border-white/10 bg-slate-950">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <h3 class="text-2xl font-bold text-white mb-8">Connect With Us</h3>
-        <div class="flex justify-center gap-10">
-          
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="social-icon insta text-slate-400 flex flex-col items-center gap-2">
-            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-            <span class="font-semibold text-sm">Instagram</span>
-          </a>
-
-          <!-- WhatsApp -->
-          <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="social-icon whats text-slate-400 flex flex-col items-center gap-2">
-            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12.031 0C5.431 0 0 5.43 0 12.031c0 2.12.553 4.173 1.602 5.977L.461 23.539l5.672-1.487A11.967 11.967 0 0012.031 24c6.6 0 12.031-5.43 12.031-12.031C24.062 5.43 18.631 0 12.031 0z"/>
-            </svg>
-            <span class="font-semibold text-sm">WhatsApp</span>
-          </a>
-          
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="border-t border-white/10 bg-slate-950/90 pt-8 pb-8 text-center text-xs text-slate-400">
-    <p>© <span id="current-copyright-year"></span> New Ambition Tutorials. All rights reserved.</p>
-    <p class="mt-2 text-slate-500">Managed by Sneha Chaturvedi | Led by Manish Mishra & Ajay Chaturvedi</p>
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-slate-950 pt-12 pb-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+        <div class="text-center md:text-left">
+          <h2 class="font-display text-2xl font-bold text-white mb-2">New Ambition Tutorials</h2>
+          <p class="text-slate-400 text-sm">Building strong concepts for Classes 6-12 (CBSE & UP Board).</p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex items-center gap-6">
+          <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-500 transition-colors transform hover:-translate-y-1" aria-label="Instagram">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-500 transition-colors transform hover:-translate-y-1" aria-label="WhatsApp">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12.031 0C5.431 0 0 5.43 0 12.031c0 2.12.553 4.173 1.602 5.977L.461 23.539l5.672-1.487A11.967 11.967 0 0012.031 24c6.6 0 12.031-5.43 12.031-12.031C24.062 5.43 18.631 0 12.031 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center text-xs text-slate-600 border-t border-white/5 pt-6">
+        <p>&copy; <span id="year"></span> New Ambition Tutorials. All rights reserved.</p>
+        <p class="mt-1">Managed by Sneha Chaturvedi | Led by Manish Mishra & Ajay Chaturvedi</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <!-- Back to Top -->
+    <button id="back-to-top" class="w-12 h-12 rounded-full bg-slate-800 border border-white/10 text-white flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-slate-700 hover:-translate-y-1" aria-label="Back to top">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+    
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-transform hover:scale-110" aria-label="Chat on WhatsApp">
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+    </a>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-md items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button id="lb-close" class="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors z-10" aria-label="Close">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    
+    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-10" aria-label="Previous Image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+    
+    <div class="max-w-5xl w-full max-h-[85vh] flex flex-col items-center">
+      <img id="lb-img" src="" alt="Enlarged View" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl">
+      <p id="lb-caption" class="text-white text-center mt-4 text-lg font-medium"></p>
+    </div>
+    
+    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-10" aria-label="Next Image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </button>
+  </div>
 
   <!-- JAVASCRIPT -->
   <script>
-    // 1. Dynamic Year
-    document.getElementById('current-copyright-year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // --- 1. Dynamic Year ---
+      document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 2. Notice Banner Close
-    document.getElementById('close-notice-btn').addEventListener('click', () => {
-      document.getElementById('top-notice-banner').classList.add('hidden');
-    });
-
-    // 3. Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuDrawer.classList.toggle('hidden');
-    });
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenuDrawer.classList.add('hidden'));
-    });
-
-    // =========================================
-    // 4. ELECTRIC NAVIGATOR ANIMATION LOGIC
-    // =========================================
-    const desktopNav = document.getElementById('desktop-nav');
-    const desktopNavLinks = document.querySelectorAll('.nav-link');
-    const activeIndicator = document.getElementById('nav-active-indicator');
-    const hoverIndicator = document.getElementById('nav-hover-indicator');
-
-    if (desktopNav && activeIndicator && hoverIndicator) {
-      function moveIndicator(indicator, element) {
+      // --- 2. Electric Navigator & Active Section Tracking ---
+      const desktopNav = document.getElementById('desktop-nav');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const activeIndicator = document.getElementById('nav-active-indicator');
+      const hoverIndicator = document.getElementById('nav-hover-indicator');
+      
+      const moveIndicator = (indicator, element) => {
         if (!element) return;
-        const left = element.offsetLeft;
-        const width = element.offsetWidth;
-        indicator.style.transform = `translateX(${left}px)`;
-        indicator.style.width = `${width}px`;
-      }
+        indicator.style.transform = `translateX(${element.offsetLeft}px)`;
+        indicator.style.width = `${element.offsetWidth}px`;
+      };
 
-      function setActiveLink(link) {
-        if (!link) return;
-        desktopNavLinks.forEach(l => l.classList.remove('active'));
+      const setActiveLink = (link) => {
+        navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
         moveIndicator(activeIndicator, link);
-      }
+      };
 
-      const initialActive = document.querySelector('.nav-link.active') || desktopNavLinks[0];
+      // Set initial position
+      const initialActive = document.querySelector('.nav-link.active') || navLinks[0];
       if (initialActive) {
         activeIndicator.style.transition = 'none';
         setActiveLink(initialActive);
         setTimeout(() => { activeIndicator.style.transition = ''; }, 50);
       }
 
-      desktopNavLinks.forEach(link => {
+      navLinks.forEach(link => {
         link.addEventListener('mouseenter', () => {
           moveIndicator(hoverIndicator, link);
           hoverIndicator.style.opacity = '1';
@@ -584,126 +747,263 @@
           moveIndicator(hoverIndicator, link);
           hoverIndicator.style.opacity = '1';
         });
-        link.addEventListener('blur', () => {
-          hoverIndicator.style.opacity = '0';
-        });
-        link.addEventListener('click', () => {
-          setActiveLink(link);
-        });
+        link.addEventListener('blur', () => hoverIndicator.style.opacity = '0');
+        link.addEventListener('click', () => setActiveLink(link));
       });
+      
+      if (desktopNav) {
+        desktopNav.addEventListener('mouseleave', () => hoverIndicator.style.opacity = '0');
+      }
 
-      desktopNav.addEventListener('mouseleave', () => {
-        hoverIndicator.style.opacity = '0';
-      });
-
-      window.updateNavActiveState = setActiveLink;
-    }
-
-    // =========================================
-    // 5. ACTIVE NAV ON SCROLL
-    // =========================================
-    const sections = document.querySelectorAll('section[id]');
-    if ("IntersectionObserver" in window && sections.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
+      // Intersection Observer for Active Nav Link
+      const sections = document.querySelectorAll('section[id]');
+      const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const activeId = entry.target.id;
-            desktopNavLinks.forEach(link => {
-              if (link.getAttribute("href") === "#" + activeId) {
-                if (window.updateNavActiveState) window.updateNavActiveState(link);
-              }
-            });
+            const link = document.querySelector(`.nav-link[href="#${activeId}"]`);
+            if (link) setActiveLink(link);
           }
         });
-      }, { rootMargin: "-25% 0px -60% 0px", threshold: 0.05 });
-      sections.forEach(sec => observer.observe(sec));
-    }
+      }, { rootMargin: "-20% 0px -60% 0px", threshold: 0 });
+      
+      sections.forEach(sec => sectionObserver.observe(sec));
 
-    // =========================================
-    // 6. ACHIEVEMENTS COUNTER ANIMATION
-    // =========================================
-    const counters = document.querySelectorAll('.counter-value');
-    let hasCounted = false;
+      // --- 3. Mobile Menu ---
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    const animateCounters = () => {
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const duration = 2000; 
-        const stepTime = Math.abs(Math.floor(duration / target));
-        let current = 0;
+      const toggleMenu = (show) => {
+        mobileMenu.classList.toggle('hidden', !show);
+        mobileBtn.setAttribute('aria-expanded', show ? 'true' : 'false');
+        if (show) {
+          mobileMenu.style.transform = 'scaleY(1)';
+        } else {
+          mobileMenu.style.transform = 'scaleY(0)';
+        }
+      };
 
-        const timer = setInterval(() => {
-          current += Math.ceil(target / 50); 
-          if (current >= target) {
-            counter.innerText = target;
-            clearInterval(timer);
-          } else {
-            counter.innerText = current;
-          }
-        }, stepTime);
+      mobileBtn.addEventListener('click', () => {
+        const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+        toggleMenu(!isExpanded);
       });
-    };
+      mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          toggleMenu(false);
+        }
+      });
 
-    const achievementSection = document.getElementById('achievements');
-    if (achievementSection) {
-      const statsObserver = new IntersectionObserver((entries) => {
+      // --- 4. Staggered Scroll Reveal ---
+      const revealElements = document.querySelectorAll('.reveal-scroll');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+      
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // --- 5. Counter Animation (requestAnimationFrame) ---
+      const counters = document.querySelectorAll('.counter');
+      let hasCounted = false;
+
+      const animateValue = (obj, start, end, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          obj.innerHTML = Math.floor(progress * (end - start) + start);
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            obj.innerHTML = end;
+          }
+        };
+        window.requestAnimationFrame(step);
+      };
+
+      const counterObserver = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !hasCounted) {
-          animateCounters();
-          hasCounted = true; 
+          counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            animateValue(counter, 0, target, 2000); // 2 second duration
+          });
+          hasCounted = true;
         }
       }, { threshold: 0.5 });
-      statsObserver.observe(achievementSection);
-    }
-
-    // =========================================
-    // 7. SMART WHATSAPP ENQUIRY FORM
-    // =========================================
-    const form = document.getElementById('whatsapp-form');
-    const classSelect = document.getElementById('form-class');
-    const subjectContainer = document.getElementById('subject-container');
-    const subjectSelect = document.getElementById('form-subject');
-
-    // Show/Hide Subject dropdown based on Class selected
-    classSelect.addEventListener('change', function() {
-      const val = this.value;
-      if (val === 'Class 11' || val === 'Class 12' || val === 'CUET') {
-        subjectContainer.style.display = 'block';
-        subjectSelect.required = true;
-      } else if (val) {
-        subjectContainer.style.display = 'none';
-        subjectSelect.required = false;
-        subjectSelect.value = ''; // Reset to empty
-      }
-    });
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('form-name').value;
-      const phone = document.getElementById('form-phone').value;
-      const board = document.getElementById('form-board').value;
-      const studentClass = classSelect.value;
       
-      let finalSubject = "All Subjects (Foundation/Board)";
+      if (counters.length > 0) counterObserver.observe(counters[0].closest('.grid'));
+
+      // --- 6. FAQ Accordion ---
+      const faqButtons = document.querySelectorAll('.faq-btn');
+      faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          // Close all others
+          faqButtons.forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            b.nextElementSibling.classList.remove('open');
+          });
+          // Toggle current
+          if (!expanded) {
+            btn.setAttribute('aria-expanded', 'true');
+            btn.nextElementSibling.classList.add('open');
+          }
+        });
+      });
+
+      // --- 7. Interactive Class Cards ---
+      const classCards = document.querySelectorAll('.class-card');
+      classCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const list = card.querySelector('.subject-list');
+          if (list) list.classList.toggle('hidden');
+        });
+      });
+
+      // --- 8. Back to Top & Floating Action ---
+      const backToTop = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+          backToTop.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // --- 9. Form Logic & WhatsApp Generation ---
+      const form = document.getElementById('enquiry-form');
+      const classSelect = document.getElementById('student-class');
+      const subjectContainer = document.getElementById('subject-container');
+      const subjectSelect = document.getElementById('subject');
+      const phoneInput = document.getElementById('phone');
+      const phoneError = document.getElementById('phone-error');
+
+      // Conditional Subject Dropdown
+      classSelect.addEventListener('change', (e) => {
+        const val = e.target.value;
+        if (val === 'Class 11' || val === 'Class 12' || val === 'CUET') {
+          subjectContainer.classList.remove('hidden');
+          subjectSelect.required = true;
+        } else {
+          subjectContainer.classList.add('hidden');
+          subjectSelect.required = false;
+          subjectSelect.value = ''; // Reset
+        }
+      });
+
+      // Form Submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Phone Validation
+        const phoneValue = phoneInput.value.trim();
+        const phoneRegex = /^[6-9]\d{9}$/; // Validates 10-digit Indian mobile
+        if (!phoneRegex.test(phoneValue)) {
+          phoneError.classList.remove('hidden');
+          phoneInput.classList.add('border-rose-500');
+          return;
+        } else {
+          phoneError.classList.add('hidden');
+          phoneInput.classList.remove('border-rose-500');
+        }
+
+        const name = document.getElementById('name').value;
+        const board = document.getElementById('board').value;
+        const studentClass = classSelect.value;
+        
+        let finalSubject = "All Subjects (Foundation/Board)";
+        if (studentClass === 'Class 11' || studentClass === 'Class 12' || studentClass === 'CUET') {
+          finalSubject = subjectSelect.value;
+        }
+
+        // Professional WhatsApp Message
+        const message = 
+          `*🎓 NEW ADMISSION ENQUIRY*\n\n` +
+          `*👤 Student Name:* ${name}\n` +
+          `*📞 Contact Number:* ${phoneValue}\n` +
+          `*🏫 Class:* ${studentClass}\n` +
+          `*📖 Board:* ${board}\n` +
+          `*📚 Subjects/Stream:* ${finalSubject}\n\n` +
+          `_Sent from New Ambition Tutorials Website_`;
+
+        const url = `https://wa.me/919219626863?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+      });
+
+      // --- 10. Lightbox Logic ---
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lb-img');
+      const lbCaption = document.getElementById('lb-caption');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lbClose = document.getElementById('lb-close');
+      const lbPrev = document.getElementById('lb-prev');
+      const lbNext = document.getElementById('lb-next');
+      let currentImgIndex = 0;
+
+      const updateLightbox = (index) => {
+        const item = galleryItems[index];
+        const img = item.querySelector('img');
+        const caption = item.querySelector('span').innerText;
+        
+        lbImg.src = img.src.replace('w=600', 'w=1200'); // Load higher res for lightbox
+        lbImg.alt = img.alt;
+        lbCaption.innerText = caption;
+      };
+
+      const openLightbox = (index) => {
+        currentImgIndex = index;
+        updateLightbox(currentImgIndex);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        lbClose.focus();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        galleryItems[currentImgIndex].focus(); // Return focus
+      };
+
+      galleryItems.forEach((item, index) => {
+        item.setAttribute('tabindex', '0'); // Make accessible via keyboard
+        item.addEventListener('click', () => openLightbox(index));
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox(index);
+          }
+        });
+      });
+
+      lbClose.addEventListener('click', closeLightbox);
       
-      if (studentClass === 'Class 11' || studentClass === 'Class 12' || studentClass === 'CUET') {
-         finalSubject = subjectSelect.value;
-      }
+      lbNext.addEventListener('click', () => {
+        currentImgIndex = (currentImgIndex + 1) % galleryItems.length;
+        updateLightbox(currentImgIndex);
+      });
+      
+      lbPrev.addEventListener('click', () => {
+        currentImgIndex = (currentImgIndex - 1 + galleryItems.length) % galleryItems.length;
+        updateLightbox(currentImgIndex);
+      });
 
-      // Professional WhatsApp Message Format using \n for line breaks
-      const message = 
-        `*🎓 NEW ADMISSION ENQUIRY*\n\n` +
-        `*👤 Student Name:* ${name}\n` +
-        `*📞 Contact Number:* ${phone}\n` +
-        `*🏫 Class:* ${studentClass}\n` +
-        `*📖 Board:* ${board}\n` +
-        `*📚 Subjects/Stream:* ${finalSubject}\n\n` +
-        `_Sent from New Ambition Tutorials Website_`;
-
-      // encodeURIComponent ensures formatting and emojis stay intact on WhatsApp
-      const url = `https://wa.me/919219626863?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') lbNext.click();
+        if (e.key === 'ArrowLeft') lbPrev.click();
+      });
     });
   </script>
 </body>
-</html>
+                                                                 </html>
