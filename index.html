@@ -265,7 +265,6 @@
         <h3 class="text-xl font-bold text-center text-sky-300 mb-6">Leadership & Management</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           
-          <!-- Manish Mishra -->
           <div class="glass-card p-6 text-center">
             <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 p-1 mb-4">
               <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">MM</div>
@@ -275,7 +274,6 @@
             <p class="text-xs text-slate-400">Leading the academic curriculum and chemistry department.</p>
           </div>
 
-          <!-- Ajay Chaturvedi -->
           <div class="glass-card p-6 text-center">
             <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 p-1 mb-4">
               <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">AC</div>
@@ -285,7 +283,6 @@
             <p class="text-xs text-slate-400">Guiding students with mathematical precision and logic.</p>
           </div>
 
-          <!-- Sneha Chaturvedi -->
           <div class="glass-card p-6 text-center">
             <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 p-1 mb-4">
               <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-white">SC</div>
@@ -300,7 +297,6 @@
         <h3 class="text-xl font-bold text-center text-sky-300 mb-6">Core Faculty</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           
-          <!-- Swastik Roy (Purple Photo) -->
           <div class="glass-card glass-card-interactive p-6 text-center relative">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-400 p-1 mb-5 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
               <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
@@ -309,7 +305,6 @@
             <p class="text-sm text-purple-400 mb-4 font-semibold">Chemistry Educator</p>
           </div>
 
-          <!-- Rahul Sir (Grey Photo) -->
           <div class="glass-card glass-card-interactive p-6 text-center relative">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-emerald-400 p-1 mb-5 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
               <img src="assets/images/rahul.jpg" alt="Rahul Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Sir&background=10B981&color=fff'">
@@ -318,7 +313,6 @@
             <p class="text-sm text-emerald-400 mb-4 font-semibold">Commerce Faculty</p>
           </div>
 
-          <!-- Pradeep Sir (Blue Photo) -->
           <div class="glass-card glass-card-interactive p-6 text-center relative">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-400 p-1 mb-5 shadow-[0_0_20px_rgba(56,189,248,0.4)]">
               <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0D8ABC&color=fff'">
@@ -337,7 +331,6 @@
         <div class="max-w-3xl mb-12">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Curriculum</span>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Classes & Subjects</h2>
-          <p class="text-slate-300 mt-3">We offer individual subject tuition, combination packages, and PCMB options where applicable.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -485,7 +478,6 @@
                   <option value="PCB (Physics, Chemistry, Biology)">PCB (Science)</option>
                   <option value="PCMB (Physics, Chemistry, Maths, Biology)">PCMB (Science)</option>
                   <option value="Commerce">Commerce</option>
-                  <option value="Humanities/Arts">Humanities/Arts</option>
                 </select>
               </div>
 
@@ -698,12 +690,20 @@
          finalSubject = subjectSelect.value;
       }
 
-      // Professional WhatsApp Message Format
-      const message = `*NEW ADMISSION ENQUIRY*%0A%0A👤 *Student Name:* ${name}%0A📞 *Contact No:* ${phone}%0A🎓 *Class:* ${studentClass}%0A🏫 *Board:* ${board}%0A📚 *Subject/Stream:* ${finalSubject}%0A%0AHello New Ambition Tutorials, I would like to know more about fees and batch timings for the above student.`;
+      // Professional WhatsApp Message Format using \n for line breaks
+      const message = 
+        `*🎓 NEW ADMISSION ENQUIRY*\n\n` +
+        `*👤 Student Name:* ${name}\n` +
+        `*📞 Contact Number:* ${phone}\n` +
+        `*🏫 Class:* ${studentClass}\n` +
+        `*📖 Board:* ${board}\n` +
+        `*📚 Subjects/Stream:* ${finalSubject}\n\n` +
+        `_Sent from New Ambition Tutorials Website_`;
 
-      const url = `https://wa.me/919219626863?text=${message}`;
+      // encodeURIComponent ensures formatting and emojis stay intact on WhatsApp
+      const url = `https://wa.me/919219626863?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     });
   </script>
 </body>
-    </html>
+</html>
