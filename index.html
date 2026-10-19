@@ -79,6 +79,21 @@
 
     .placeholder-callout { background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(251, 191, 36, 0.45); border-radius: 12px; color: #fde68a; }
     .placeholder-tag { display: inline-flex; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #fde68a; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(251, 191, 36, 0.4); border-radius: 9999px; }
+
+    /* Social Media Glow */
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    .social-icon.insta:hover {
+      color: #E1306C;
+      filter: drop-shadow(0 0 15px rgba(225, 48, 108, 0.6));
+      transform: translateY(-5px);
+    }
+    .social-icon.whats:hover {
+      color: #25D366;
+      filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.6));
+      transform: translateY(-5px);
+    }
   </style>
 </head>
 <body class="bg-grid-pattern antialiased selection:bg-sky-500 selection:text-slate-950">
@@ -100,9 +115,12 @@
   <header id="site-header" class="sticky top-0 z-40 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
+      <!-- LOGO SECTION -->
       <a href="#home" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500/30 via-indigo-600/30 to-slate-900 border border-sky-400/40 flex items-center justify-center shadow-lg shrink-0">
-          <span class="font-display font-extrabold text-base tracking-tight text-white">NAT</span>
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500/30 via-indigo-600/30 to-slate-900 border border-sky-400/40 flex items-center justify-center shadow-lg shrink-0 overflow-hidden p-1">
+          <!-- Yahan logo.png upload karein assets/images/ folder mein -->
+          <img src="assets/images/logo.png" alt="Ambition Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="font-display font-extrabold text-base tracking-tight text-white" style="display:none;">NAT</span>
         </div>
         <div>
           <span class="font-display font-bold text-base sm:text-lg text-white block leading-tight">New Ambition</span>
@@ -285,40 +303,28 @@
           <!-- Swastik Roy (Purple Photo) -->
           <div class="glass-card glass-card-interactive p-6 text-center relative">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-400 p-1 mb-5 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-              <!-- Make sure to put your purple shirt image as swastik.jpg in assets/images/ -->
               <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
             </div>
             <h3 class="text-xl font-bold text-white">Swastik Roy</h3>
             <p class="text-sm text-purple-400 mb-4 font-semibold">Chemistry Educator</p>
-            <div class="placeholder-callout p-3 text-xs text-left mb-2">
-              <p><strong>Subject:</strong> Chemistry</p>
-            </div>
           </div>
 
           <!-- Rahul Sir (Grey Photo) -->
           <div class="glass-card glass-card-interactive p-6 text-center relative">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-emerald-400 p-1 mb-5 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
-              <!-- Make sure to put your grey shirt image as rahul.jpg in assets/images/ -->
               <img src="assets/images/rahul.jpg" alt="Rahul Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Sir&background=10B981&color=fff'">
             </div>
             <h3 class="text-xl font-bold text-white">Rahul Sir</h3>
             <p class="text-sm text-emerald-400 mb-4 font-semibold">Commerce Faculty</p>
-            <div class="placeholder-callout p-3 text-xs text-left mb-2">
-              <p><strong>Subject:</strong> Commerce</p>
-            </div>
           </div>
 
           <!-- Pradeep Sir (Blue Photo) -->
           <div class="glass-card glass-card-interactive p-6 text-center relative">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-400 p-1 mb-5 shadow-[0_0_20px_rgba(56,189,248,0.4)]">
-              <!-- Make sure to put your blue shirt image as pradeep.jpg in assets/images/ -->
               <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0D8ABC&color=fff'">
             </div>
             <h3 class="text-xl font-bold text-white">Pradeep Sir</h3>
             <p class="text-sm text-sky-400 mb-4 font-semibold">Physics Faculty</p>
-            <div class="placeholder-callout p-3 text-xs text-left mb-2">
-              <p><strong>Subject:</strong> Physics</p>
-            </div>
           </div>
 
         </div>
@@ -338,28 +344,14 @@
           <div class="glass-card p-6">
             <h3 class="text-xl font-bold text-sky-400 mb-2">Classes 6–8</h3>
             <p class="text-sm text-slate-300 mb-3">Foundation building with focus on core concepts across all subjects.</p>
-            <div class="flex flex-wrap gap-1.5 mt-auto">
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Maths</span>
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Science</span>
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">English</span>
-            </div>
           </div>
           <div class="glass-card p-6">
             <h3 class="text-xl font-bold text-indigo-400 mb-2">Classes 9–10</h3>
             <p class="text-sm text-slate-300 mb-3">Board-oriented preparation and rigorous practice for CBSE and UP Board.</p>
-            <div class="flex flex-wrap gap-1.5 mt-auto">
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Science</span>
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Maths</span>
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Commerce</span>
-            </div>
           </div>
           <div class="glass-card p-6">
             <h3 class="text-xl font-bold text-emerald-400 mb-2">Classes 11–12</h3>
             <p class="text-sm text-slate-300 mb-3">Advanced PCMB, Commerce and subject specialization for competitive exams.</p>
-            <div class="flex flex-wrap gap-1.5 mt-auto">
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">PCMB</span>
-              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Commerce</span>
-            </div>
           </div>
         </div>
       </div>
@@ -416,7 +408,7 @@
       </div>
     </section>
 
-    <!-- 8. CONTACT SECTION -->
+    <!-- 8. CONTACT SECTION (SMART WHATSAPP FORM) -->
     <section id="contact" class="py-16 sm:py-20 border-t border-white/10 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-12 text-center mx-auto">
@@ -447,24 +439,88 @@
 
           <div class="glass-card p-8">
             <h3 class="text-xl font-bold text-white mb-6">Send a Message</h3>
-            <form class="space-y-4">
-              <input type="text" placeholder="Student Name" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
-              <input type="tel" placeholder="Phone Number" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+            <form id="whatsapp-form" class="space-y-4">
               
-              <select class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400">
-                <option value="" class="text-slate-500">Select Subject</option>
-                <option value="physics">Physics</option>
-                <option value="chemistry">Chemistry</option>
-                <option value="maths">Mathematics</option>
-                <option value="biology">Biology</option>
-                <option value="commerce">Commerce</option>
-                <option value="hindi">Hindi</option>
-                <option value="english">English</option>
-              </select>
+              <div>
+                <label class="text-xs text-slate-400 mb-1 block">Student Name *</label>
+                <input type="text" id="form-name" placeholder="Enter name" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+              </div>
+              
+              <div>
+                <label class="text-xs text-slate-400 mb-1 block">Contact Number *</label>
+                <input type="tel" id="form-phone" placeholder="10-digit mobile" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+              </div>
 
-              <button type="submit" class="btn-primary w-full py-3 rounded-xl font-bold">Submit Enquiry</button>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs text-slate-400 mb-1 block">Select Class *</label>
+                  <select id="form-class" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+                    <option value="">Class</option>
+                    <option value="Class 6">Class 6</option>
+                    <option value="Class 7">Class 7</option>
+                    <option value="Class 8">Class 8</option>
+                    <option value="Class 9">Class 9</option>
+                    <option value="Class 10">Class 10</option>
+                    <option value="Class 11">Class 11</option>
+                    <option value="Class 12">Class 12</option>
+                    <option value="CUET">CUET</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-xs text-slate-400 mb-1 block">Board *</label>
+                  <select id="form-board" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400" required>
+                    <option value="">Select Board</option>
+                    <option value="CBSE">CBSE</option>
+                    <option value="UP Board">UP Board</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Subject Container (Only shows for 11, 12, CUET) -->
+              <div id="subject-container" style="display: none;">
+                <label class="text-xs text-slate-400 mb-1 block">Select Stream/Subject *</label>
+                <select id="form-subject" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-400">
+                  <option value="">Choose...</option>
+                  <option value="PCM (Physics, Chemistry, Maths)">PCM (Science)</option>
+                  <option value="PCB (Physics, Chemistry, Biology)">PCB (Science)</option>
+                  <option value="PCMB (Physics, Chemistry, Maths, Biology)">PCMB (Science)</option>
+                  <option value="Commerce">Commerce</option>
+                  <option value="Humanities/Arts">Humanities/Arts</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-whatsapp w-full py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 mt-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                Submit Enquiry via WhatsApp
+              </button>
             </form>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SOCIAL MEDIA SECTION -->
+    <section id="socials" class="py-12 border-t border-white/10 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold text-white mb-8">Connect With Us</h3>
+        <div class="flex justify-center gap-10">
+          
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="social-icon insta text-slate-400 flex flex-col items-center gap-2">
+            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+            <span class="font-semibold text-sm">Instagram</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="social-icon whats text-slate-400 flex flex-col items-center gap-2">
+            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12.031 0C5.431 0 0 5.43 0 12.031c0 2.12.553 4.173 1.602 5.977L.461 23.539l5.672-1.487A11.967 11.967 0 0012.031 24c6.6 0 12.031-5.43 12.031-12.031C24.062 5.43 18.631 0 12.031 0z"/>
+            </svg>
+            <span class="font-semibold text-sm">WhatsApp</span>
+          </a>
+          
         </div>
       </div>
     </section>
@@ -548,20 +604,6 @@
         hoverIndicator.style.opacity = '0';
       });
 
-      window.addEventListener('resize', () => {
-        const activeLink = document.querySelector('.nav-link.active');
-        if (activeLink) {
-          activeIndicator.style.transition = 'none';
-          hoverIndicator.style.transition = 'none';
-          moveIndicator(activeIndicator, activeLink);
-          hoverIndicator.style.opacity = '0';
-          setTimeout(() => {
-            activeIndicator.style.transition = '';
-            hoverIndicator.style.transition = '';
-          }, 50);
-        }
-      });
-
       window.updateNavActiveState = setActiveLink;
     }
 
@@ -620,6 +662,48 @@
       }, { threshold: 0.5 });
       statsObserver.observe(achievementSection);
     }
+
+    // =========================================
+    // 7. SMART WHATSAPP ENQUIRY FORM
+    // =========================================
+    const form = document.getElementById('whatsapp-form');
+    const classSelect = document.getElementById('form-class');
+    const subjectContainer = document.getElementById('subject-container');
+    const subjectSelect = document.getElementById('form-subject');
+
+    // Show/Hide Subject dropdown based on Class selected
+    classSelect.addEventListener('change', function() {
+      const val = this.value;
+      if (val === 'Class 11' || val === 'Class 12' || val === 'CUET') {
+        subjectContainer.style.display = 'block';
+        subjectSelect.required = true;
+      } else if (val) {
+        subjectContainer.style.display = 'none';
+        subjectSelect.required = false;
+        subjectSelect.value = ''; // Reset to empty
+      }
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const board = document.getElementById('form-board').value;
+      const studentClass = classSelect.value;
+      
+      let finalSubject = "All Subjects (Foundation/Board)";
+      
+      if (studentClass === 'Class 11' || studentClass === 'Class 12' || studentClass === 'CUET') {
+         finalSubject = subjectSelect.value;
+      }
+
+      // Professional WhatsApp Message Format
+      const message = `*NEW ADMISSION ENQUIRY*%0A%0A👤 *Student Name:* ${name}%0A📞 *Contact No:* ${phone}%0A🎓 *Class:* ${studentClass}%0A🏫 *Board:* ${board}%0A📚 *Subject/Stream:* ${finalSubject}%0A%0AHello New Ambition Tutorials, I would like to know more about fees and batch timings for the above student.`;
+
+      const url = `https://wa.me/919219626863?text=${message}`;
+      window.open(url, '_blank');
+    });
   </script>
 </body>
-            </html>
+    </html>
