@@ -2,34 +2,17 @@
 <html lang="en" class="dark scroll-smooth">
 <head>
   <script>
-    // Safely flag that JS is running to prevent invisible content if JS fails later
     document.documentElement.classList.add('js-enabled');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO & Metadata -->
   <title>New Ambition Tutorials | Premium Tuition for Classes 6–12 (CBSE & UP Board)</title>
   <meta name="description" content="New Ambition Tutorials offers concept-focused tuition for Classes 6–12 covering CBSE and UP Board curriculum across Physics, Chemistry, Mathematics, Biology, Commerce, Hindi, and English. Expert faculty and result-oriented preparation." />
-  <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="New Ambition Tutorials | Classes 6–12 Tuition" />
-  <meta property="og:description" content="Build Strong Concepts. Shape Your Ambition. Personalised tuition in Science, Commerce, and Languages." />
-  <meta property="og:url" content="https://new-ambition-tutorials.vercel.app/" />
-  <meta property="og:site_name" content="New Ambition Tutorials" />
-  <meta name="theme-color" content="#050914" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiMwRjE3MkEiLz48dGV4dCB4PSIzMiIgeT0iNDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzM4QkRGOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TkFUPC90ZXh0Pjwvc3ZnPg==" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 
   <style>
@@ -46,13 +29,8 @@
       --font-display: 'Plus Jakarta Sans', sans-serif;
     }
 
-    html {
-      scroll-padding-top: 90px; 
-    }
-
-    section {
-      scroll-margin-top: 90px;
-    }
+    html { scroll-padding-top: 90px; }
+    section { scroll-margin-top: 90px; }
 
     body {
       margin: 0; padding: 0; background-color: var(--bg-deep); font-family: var(--font-sans);
@@ -117,10 +95,11 @@
     .timeline-item:last-child::before { display: none; }
     .timeline-dot { position: absolute; left: -1.75rem; top: 0.25rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--accent-cyan); border: 3px solid var(--bg-deep); box-shadow: 0 0 10px var(--accent-cyan); }
 
-    .floating-actions {
-      bottom: calc(1.5rem + env(safe-area-inset-bottom));
-      right: calc(1.5rem + env(safe-area-inset-right));
-    }
+    .floating-actions { bottom: calc(1.5rem + env(safe-area-inset-bottom)); right: calc(1.5rem + env(safe-area-inset-right)); }
+
+    /* Custom Styling for Toppers Card */
+    .topper-img { aspect-ratio: 3 / 4; object-fit: cover; }
+    .score-badge { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #451a03; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
@@ -158,12 +137,14 @@
         </div>
       </a>
 
+      <!-- DESKTOP NAV -->
       <nav id="desktop-nav" aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 xl:gap-2">
         <div id="nav-active-indicator"></div>
         <div id="nav-hover-indicator"></div>
         <a href="#home" class="nav-link active px-3 py-2 text-sm font-medium">Home</a>
         <a href="#about" class="nav-link px-3 py-2 text-sm font-medium">About</a>
         <a href="#faculty" class="nav-link px-3 py-2 text-sm font-medium">Faculty</a>
+        <a href="#toppers" class="nav-link px-3 py-2 text-sm font-medium text-amber-400">🏆 Toppers</a>
         <a href="#classes" class="nav-link px-3 py-2 text-sm font-medium">Classes</a>
         <a href="#methodology" class="nav-link px-3 py-2 text-sm font-medium">Methodology</a>
         <a href="#gallery" class="nav-link px-3 py-2 text-sm font-medium">Gallery</a>
@@ -183,12 +164,14 @@
       </button>
     </div>
 
+    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/10 shadow-2xl" aria-hidden="true">
       <div>
         <nav class="flex flex-col px-4 pt-4 pb-6 gap-2">
           <a href="#home" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Home</a>
           <a href="#about" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">About</a>
           <a href="#faculty" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Faculty</a>
+          <a href="#toppers" class="mobile-link px-4 py-3 rounded-lg bg-amber-500/10 text-amber-300 font-bold">🏆 Our Top Scorers</a>
           <a href="#classes" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Classes</a>
           <a href="#methodology" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Methodology</a>
           <a href="#gallery" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Gallery</a>
@@ -201,6 +184,7 @@
 
   <main id="main-content" class="relative z-10">
     
+    <!-- HERO SECTION -->
     <section id="home" class="relative pt-20 pb-24 sm:pt-28 sm:pb-32 overflow-hidden">
       <div class="float-icon float-1 font-serif" aria-hidden="true">π</div>
       <div class="float-icon float-2 font-sans" aria-hidden="true">∑</div>
@@ -224,8 +208,8 @@
             </p>
             
             <div class="reveal-hero delay-3 flex flex-wrap gap-4 pt-2">
-              <a href="#classes" class="btn-primary px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
-                Explore Courses
+              <a href="#toppers" class="btn-primary px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
+                View Our Toppers
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
               <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
@@ -235,6 +219,7 @@
             </div>
           </div>
 
+          <!-- Hero Right: Quick Stats Grid -->
           <div class="reveal-hero delay-3 relative">
             <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 rounded-3xl blur-2xl transform rotate-3" aria-hidden="true"></div>
             <div class="glass-card p-8 relative border-white/10 grid grid-cols-2 gap-6">
@@ -261,6 +246,7 @@
       </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal-scroll">
@@ -273,6 +259,7 @@
       </div>
     </section>
 
+    <!-- FACULTY SECTION -->
     <section id="faculty" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
@@ -287,7 +274,6 @@
             </div>
             <h3 class="text-xl font-bold text-white mb-1">Manish Mishra</h3>
             <p class="text-sm text-sky-400 font-semibold mb-4">HOD & Chemistry Faculty</p>
-            <p class="text-sm text-slate-400">Leading the academic curriculum and chemistry department with years of pedagogical expertise.</p>
           </div>
           
           <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
@@ -296,7 +282,6 @@
             </div>
             <h3 class="text-xl font-bold text-white mb-1">Ajay Chaturvedi</h3>
             <p class="text-sm text-emerald-400 font-semibold mb-4">Co-Founder & Math Faculty</p>
-            <p class="text-sm text-slate-400">Guiding students with mathematical precision, logic, and an analytical approach to problem-solving.</p>
           </div>
 
           <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
@@ -305,7 +290,6 @@
             </div>
             <h3 class="text-xl font-bold text-white mb-1">Sneha Chaturvedi</h3>
             <p class="text-sm text-pink-400 font-semibold mb-4">Institute Manager</p>
-            <p class="text-sm text-slate-400">Managing daily operations, admissions, and ensuring a seamless experience for parents and students.</p>
           </div>
 
           <div class="glass-card glass-card-hover p-8 text-center reveal-scroll">
@@ -335,7 +319,100 @@
       </div>
     </section>
 
-    <section id="classes" class="py-20 border-t border-white/5">
+    <!-- NEW TOPPERS SECTION -->
+    <section id="toppers" class="py-20 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-2 flex justify-center items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            Our Pride
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Top Scorers 2025-2026</h2>
+          <p class="text-slate-400">Congratulations to our brilliant students for their outstanding performance in Class 10 Board Exams!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          
+          <!-- Topper 1: Naman Upadhyay -->
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group relative">
+            <!-- Score Badge -->
+            <div class="absolute top-4 right-4 z-20 score-badge font-bold px-3 py-1.5 rounded-full text-sm border border-amber-200/50">
+              91%
+            </div>
+            
+            <!-- Image Container (Using aspect ratio for consistency) -->
+            <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
+              <!-- Note: Replace src with your actual poster path -->
+              <img src="assets/images/topper1.jpg" alt="Naman Upadhyay - 91%" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Naman+Upadhyay&background=1e293b&color=fff&size=400'">
+            </div>
+            
+            <!-- Details Container -->
+            <div class="p-5 text-center border-t border-white/10 bg-slate-900/60 relative z-20">
+              <h3 class="text-lg font-bold text-white mb-2">Naman Upadhyay</h3>
+              <div class="flex items-center justify-center gap-2 text-[11px] text-slate-300 font-medium">
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Batch: 2025-26</span>
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Class 10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Topper 2: Ayush Patel -->
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group relative" style="transition-delay: 100ms;">
+            <div class="absolute top-4 right-4 z-20 score-badge font-bold px-3 py-1.5 rounded-full text-sm border border-amber-200/50">
+              86.16%
+            </div>
+            <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
+              <img src="assets/images/topper3.jpg" alt="Ayush Patel - 86.16%" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Ayush+Patel&background=1e293b&color=fff&size=400'">
+            </div>
+            <div class="p-5 text-center border-t border-white/10 bg-slate-900/60 relative z-20">
+              <h3 class="text-lg font-bold text-white mb-2">Ayush Patel</h3>
+              <div class="flex items-center justify-center gap-2 text-[11px] text-slate-300 font-medium">
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Batch: 2025-26</span>
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">10th UP Board</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Topper 3: Shubhangita Singh -->
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group relative" style="transition-delay: 200ms;">
+            <div class="absolute top-4 right-4 z-20 score-badge font-bold px-3 py-1.5 rounded-full text-sm border border-amber-200/50">
+              87%
+            </div>
+            <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
+              <img src="assets/images/topper4.jpg" alt="Shubhangita Singh - 87%" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Shubhangita+Singh&background=1e293b&color=fff&size=400'">
+            </div>
+            <div class="p-5 text-center border-t border-white/10 bg-slate-900/60 relative z-20">
+              <h3 class="text-lg font-bold text-white mb-2">Shubhangita Singh</h3>
+              <div class="flex items-center justify-center gap-2 text-[11px] text-slate-300 font-medium">
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Batch: 2025-26</span>
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Class 10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Topper 4: Saurabh Tiwari -->
+          <div class="glass-card glass-card-hover overflow-hidden reveal-scroll group relative" style="transition-delay: 300ms;">
+            <div class="absolute top-4 right-4 z-20 score-badge font-bold px-3 py-1.5 rounded-full text-sm border border-amber-200/50">
+              80%
+            </div>
+            <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
+              <img src="assets/images/topper2.jpg" alt="Saurabh Tiwari - 80%" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Saurabh+Tiwari&background=1e293b&color=fff&size=400'">
+            </div>
+            <div class="p-5 text-center border-t border-white/10 bg-slate-900/60 relative z-20">
+              <h3 class="text-lg font-bold text-white mb-2">Saurabh Tiwari</h3>
+              <div class="flex items-center justify-center gap-2 text-[11px] text-slate-300 font-medium">
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Batch: 2025-26</span>
+                <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-white/5">Class 10</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSES & SUBJECTS SECTION -->
+    <section id="classes" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Curriculum</span>
@@ -395,7 +472,8 @@
       </div>
     </section>
 
-    <section id="methodology" class="py-20 border-t border-white/5 bg-slate-900/20">
+    <!-- METHODOLOGY SECTION -->
+    <section id="methodology" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">How We Teach</span>
@@ -439,7 +517,8 @@
       </div>
     </section>
 
-    <section id="gallery" class="py-20 border-t border-white/5">
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Campus Life</span>
@@ -450,7 +529,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Smart Classroom Setup">
             <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Smart Classroom Setup" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <img src="assets/images/gallery1.jpg" alt="Smart Classroom Setup" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span class="text-white font-bold text-sm">Smart Classroom Setup</span>
               </div>
@@ -458,7 +537,7 @@
           </div>
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 100ms;" tabindex="0" role="button" aria-label="View Study Area">
             <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80" alt="Quiet Study Zones" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <img src="assets/images/gallery2.jpg" alt="Quiet Study Zones" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span class="text-white font-bold text-sm">Quiet Study Zones</span>
               </div>
@@ -466,18 +545,19 @@
           </div>
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" style="transition-delay: 200ms;" tabindex="0" role="button" aria-label="View Doubt Session">
             <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Doubt Clearing Sessions" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <img src="assets/images/gallery3.jpg" alt="Doubt Clearing Sessions" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span class="text-white font-bold text-sm">Doubt Clearing Sessions</span>
               </div>
             </div>
           </div>
         </div>
-        <p class="text-center text-xs text-slate-500 mt-6 italic">Note: Placeholder images used. Actual institute photos will be updated soon.</p>
+        <p class="text-center text-xs text-slate-500 mt-6 italic">Note: Replace these with your actual institute photos.</p>
       </div>
     </section>
 
-    <section id="faq" class="py-20 border-t border-white/5 bg-slate-900/20">
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 border-t border-white/5">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Support</span>
@@ -524,7 +604,8 @@
       </div>
     </section>
 
-    <section id="contact" class="py-20 border-t border-white/5 relative">
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact" class="py-20 border-t border-white/5 relative bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           
@@ -618,7 +699,6 @@
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
                   Submit via WhatsApp
                 </button>
-                <p class="text-center text-xs text-slate-500 mt-3">Your details will be securely sent via WhatsApp.</p>
               </div>
             </form>
           </div>
@@ -627,6 +707,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t border-white/10 bg-slate-950 pt-12 pb-8 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
@@ -701,6 +782,7 @@
     </button>
   </div>
 
+  <!-- JAVASCRIPT -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       
@@ -792,14 +874,12 @@
         }
       });
 
-      // Handle window resize for mobile menu
       window.addEventListener('resize', () => {
         if (window.innerWidth >= 1024 && mobileMenu.classList.contains('open')) {
           toggleMenu(false);
         }
       });
 
-      // --- Scroll Reveal ---
       const revealElements = document.querySelectorAll('.reveal-scroll');
       
       if ('IntersectionObserver' in window) {
@@ -825,7 +905,6 @@
         revealElements.forEach(el => el.classList.add('is-visible'));
       }
 
-      // --- FAQ Accordion ---
       const faqButtons = document.querySelectorAll('.faq-btn');
       faqButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -841,7 +920,6 @@
         });
       });
 
-      // --- Interactive Class Cards ---
       const classButtons = document.querySelectorAll('.class-card button');
       classButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -861,7 +939,6 @@
         });
       });
 
-      // --- Back to Top ---
       const backToTop = document.getElementById('back-to-top');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -875,7 +952,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // --- Form Logic & WhatsApp Generation ---
       const form = document.getElementById('enquiry-form');
       const nameInput = document.getElementById('name');
       const nameError = document.getElementById('name-error');
@@ -890,7 +966,6 @@
       const subjectSelect = document.getElementById('subject');
       const subjectError = document.getElementById('subject-error');
       
-      // WhatsApp fallback elements
       const waFallbackModal = document.getElementById('wa-fallback-modal');
       const waFallbackLink = document.getElementById('wa-fallback-link');
       const waFallbackClose = document.getElementById('wa-fallback-close');
@@ -903,7 +978,6 @@
       classSelect.addEventListener('change', (e) => {
         const val = e.target.value;
         
-        // Toggle Subject dropdown
         if (val === 'Class 11' || val === 'Class 12' || val === 'CUET') {
           subjectContainer.classList.remove('hidden');
           subjectSelect.required = true;
@@ -918,7 +992,6 @@
           subjectError.classList.add('hidden');
         }
 
-        // Toggle Board dropdown
         if (val === 'CUET') {
           boardContainer.classList.add('hidden');
           boardSelect.required = false;
@@ -936,7 +1009,6 @@
         e.preventDefault();
         let isValid = true;
 
-        // 1. Validate Name
         if (nameInput.value.trim().length < 2) {
           nameInput.classList.add('border-rose-500');
           nameError.classList.remove('hidden');
@@ -946,7 +1018,6 @@
           nameError.classList.add('hidden');
         }
 
-        // 2. Validate Phone
         let cleanPhone = phoneInput.value.replace(/\D/g, ''); 
         if (cleanPhone.length === 12 && cleanPhone.startsWith('91')) {
           cleanPhone = cleanPhone.slice(2);
@@ -963,7 +1034,6 @@
           phoneInput.classList.remove('border-rose-500');
         }
 
-        // 3. Validate Class
         if (!classSelect.value) {
           classSelect.classList.add('border-rose-500');
           classError.classList.remove('hidden');
@@ -973,7 +1043,6 @@
           classError.classList.add('hidden');
         }
 
-        // 4. Validate Board (if not CUET)
         if (classSelect.value !== 'CUET' && !boardSelect.value) {
           boardSelect.classList.add('border-rose-500');
           boardError.classList.remove('hidden');
@@ -983,7 +1052,6 @@
           boardError.classList.add('hidden');
         }
 
-        // 5. Validate Subject (if 11, 12, CUET)
         if (['Class 11', 'Class 12', 'CUET'].includes(classSelect.value) && !subjectSelect.value) {
           subjectSelect.classList.add('border-rose-500');
           subjectError.classList.remove('hidden');
@@ -994,7 +1062,6 @@
         }
 
         if (!isValid) {
-          // Focus the first invalid input
           if (nameInput.classList.contains('border-rose-500')) nameInput.focus();
           else if (phoneInput.classList.contains('border-rose-500')) phoneInput.focus();
           else if (classSelect.classList.contains('border-rose-500')) classSelect.focus();
@@ -1026,17 +1093,13 @@
 
         const url = `https://wa.me/919219626863?text=${encodeURIComponent(message)}`;
         
-        // Handle popup blocking
         const newWindow = window.open(url, '_blank');
         if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-          // Popup blocked, show fallback
           waFallbackLink.href = url;
           waFallbackModal.classList.remove('hidden');
           waFallbackModal.classList.add('flex');
         } else {
-          // Optionally reset form after successful open
           form.reset();
-          // Reset conditional fields manually
           subjectContainer.classList.add('hidden');
           subjectSelect.disabled = true;
           boardContainer.classList.remove('hidden');
@@ -1044,7 +1107,6 @@
         }
       });
 
-      // --- Lightbox Logic ---
       const lightbox = document.getElementById('lightbox');
       const lbImg = document.getElementById('lb-img');
       const lbCaption = document.getElementById('lb-caption');
@@ -1055,7 +1117,6 @@
       let currentImgIndex = 0;
       let lastFocusedElement = null;
 
-      // Fallback image if load fails
       lbImg.onerror = function() {
         this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" fill="%23050914"><rect width="100%" height="100%"/><text x="50%" y="50%" fill="%2394a3b8" font-family="sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">Image Not Available</text></svg>';
       };
@@ -1087,7 +1148,6 @@
 
       galleryItems.forEach((item, index) => {
         item.addEventListener('click', (e) => {
-          // Prevent closing if clicking inside the lightbox itself (shouldn't happen as it's a separate element, but good practice)
           openLightbox(index, item);
         });
         item.addEventListener('keydown', (e) => {
@@ -1110,7 +1170,6 @@
         updateLightbox(currentImgIndex);
       });
 
-      // Backdrop click to close
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
           closeLightbox();
@@ -1149,4 +1208,4 @@
     });
   </script>
 </body>
-                  </html>
+      </html>
