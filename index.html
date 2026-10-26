@@ -49,7 +49,7 @@
 
     .glass-nav { background: rgba(5, 9, 20, 0.75); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border-bottom: 1px solid var(--glass-border); }
     
-    /* Enhanced Glass Card for Faculty */
+    /* Enhanced Glass Card */
     .glass-card { 
       background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%); 
       backdrop-filter: blur(16px); 
@@ -64,6 +64,13 @@
       transform: translateY(-5px); 
       border-color: rgba(255, 255, 255, 0.2); 
       box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2); 
+    }
+
+    /* Leadership Card Specific */
+    .leader-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8);
     }
     
     .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%); color: #fff; box-shadow: 0 8px 20px -6px rgba(14, 165, 233, 0.5); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
@@ -160,7 +167,6 @@
       animation: floatBadge 3s ease-in-out infinite;
     }
 
-    /* Review Card specific styles */
     .review-card {
       background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -172,7 +178,6 @@
     }
     .google-logo { width: 24px; height: 24px; }
 
-    /* Star Rating Input Styles */
     .star-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 4px; }
     .star-input input { display: none; }
     .star-input label { color: #475569; cursor: pointer; font-size: 2rem; transition: color 0.2s; line-height: 1; }
@@ -337,7 +342,7 @@
       </div>
     </section>
 
-    <!-- FACULTY SECTION (UPGRADED COLOR GRADING) -->
+    <!-- FACULTY SECTION (LEADERSHIP + CORE) -->
     <section id="faculty" class="py-20 border-t border-white/5 relative overflow-hidden bg-slate-900/20">
       
       <!-- Ambient Color Glows Behind the Grid -->
@@ -346,74 +351,106 @@
       <div class="absolute bottom-0 left-1/2 w-[400px] h-[200px] bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none -translate-x-1/2"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Our Team</span>
-          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Meet the Experts</h2>
+        
+        <!-- Leadership Section -->
+        <div class="text-center max-w-2xl mx-auto mb-12 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 block mb-2">Leadership</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Our Leadership Team</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-20">
           
           <!-- Ajay Chaturvedi (Founder) -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group">
-            <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 p-1 mb-6 shadow-[0_0_30px_rgba(16,185,129,0.4)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] transition-shadow duration-300">
-              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">AC</div>
+          <div class="leader-card glass-card-hover rounded-2xl reveal-scroll relative overflow-hidden group border-emerald-500/30">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full"></div>
+            <div class="p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 relative z-10">
+              <div class="w-32 h-32 shrink-0 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 p-1 shadow-[0_0_30px_rgba(16,185,129,0.4)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.7)] transition-shadow duration-300">
+                <!-- Yahan apni image add karein assets/images/ajay.jpg -->
+                <img src="assets/images/ajay.jpg" alt="Ajay Chaturvedi" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Ajay+Chaturvedi&background=10b981&color=fff&size=200'">
+              </div>
+              <div class="text-center sm:text-left">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-xs font-bold mb-3 uppercase tracking-wider">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Founder
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2 font-display">Ajay Chaturvedi</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">Leading the vision, academic excellence, and strategic growth at New Ambition Tutorials.</p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Ajay Chaturvedi</h3>
-            <p class="text-sm text-emerald-400 font-semibold mb-4">Founder of Ambition</p>
           </div>
 
-          <!-- Sneha Chaturvedi -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group" style="transition-delay: 100ms;">
-            <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-pink-400 to-rose-600 p-1 mb-6 shadow-[0_0_30px_rgba(236,72,153,0.4)] group-hover:shadow-[0_0_40px_rgba(236,72,153,0.6)] transition-shadow duration-300">
-              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">SC</div>
+          <!-- Sneha Chaturvedi (Manager) -->
+          <div class="leader-card glass-card-hover rounded-2xl reveal-scroll relative overflow-hidden group border-pink-500/30" style="transition-delay: 100ms;">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 blur-3xl rounded-full"></div>
+            <div class="p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 relative z-10">
+              <div class="w-32 h-32 shrink-0 rounded-full bg-gradient-to-br from-pink-400 to-rose-600 p-1 shadow-[0_0_30px_rgba(236,72,153,0.4)] group-hover:shadow-[0_0_40px_rgba(236,72,153,0.7)] transition-shadow duration-300">
+                <!-- Yahan apni image add karein assets/images/sneha.jpg -->
+                <img src="assets/images/sneha.jpg" alt="Sneha Chaturvedi" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Sneha+Chaturvedi&background=ec4899&color=fff&size=200'">
+              </div>
+              <div class="text-center sm:text-left">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-400/20 text-pink-300 text-xs font-bold mb-3 uppercase tracking-wider">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                  Manager
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2 font-display">Sneha Chaturvedi</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">Ensuring seamless daily operations, admissions, and exceptional parent support.</p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Sneha Chaturvedi</h3>
-            <p class="text-sm text-pink-400 font-semibold mb-4">Institute Manager</p>
           </div>
 
+        </div>
+
+        <!-- Core Faculty Section -->
+        <div class="text-center max-w-2xl mx-auto mb-12 reveal-scroll">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Experts</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Meet Our Faculty</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-7xl mx-auto">
+          
           <!-- Swastik Roy -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group" style="transition-delay: 200ms;">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-500/50 p-1 mb-6 shadow-[0_0_30px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition-shadow duration-300">
+          <div class="glass-card glass-card-hover p-6 text-center reveal-scroll relative group" style="transition-delay: 100ms;">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500/50 p-1 mb-4 shadow-[0_0_20px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-shadow duration-300">
               <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Swastik Roy</h3>
-            <p class="text-sm text-purple-400 font-semibold">Chemistry Educator</p>
+            <h3 class="text-lg font-bold text-white mb-1">Swastik Roy</h3>
+            <p class="text-xs text-purple-400 font-semibold">Chemistry Educator</p>
           </div>
 
           <!-- Pradeep Sir -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group" style="transition-delay: 300ms;">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-500/50 p-1 mb-6 shadow-[0_0_30px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_40px_rgba(56,189,248,0.5)] transition-shadow duration-300">
+          <div class="glass-card glass-card-hover p-6 text-center reveal-scroll relative group" style="transition-delay: 200ms;">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-sky-500/50 p-1 mb-4 shadow-[0_0_20px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_30px_rgba(56,189,248,0.5)] transition-shadow duration-300">
               <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0ea5e9&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Pradeep Sir</h3>
-            <p class="text-sm text-sky-400 font-semibold">Physics Faculty</p>
+            <h3 class="text-lg font-bold text-white mb-1">Pradeep Sir</h3>
+            <p class="text-xs text-sky-400 font-semibold">Physics Faculty</p>
           </div>
 
           <!-- Rustom Sir -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group" style="transition-delay: 100ms;">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-amber-500/50 p-1 mb-6 shadow-[0_0_30px_rgba(245,158,11,0.3)] group-hover:shadow-[0_0_40px_rgba(245,158,11,0.5)] transition-shadow duration-300">
+          <div class="glass-card glass-card-hover p-6 text-center reveal-scroll relative group" style="transition-delay: 300ms;">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-amber-500/50 p-1 mb-4 shadow-[0_0_20px_rgba(245,158,11,0.3)] group-hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-shadow duration-300">
               <img src="assets/images/rustom.jpg" alt="Rustom Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Rustom+Sir&background=f59e0b&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Rustom Sir</h3>
-            <p class="text-sm text-amber-400 font-semibold">Math Faculty</p>
+            <h3 class="text-lg font-bold text-white mb-1">Rustom Sir</h3>
+            <p class="text-xs text-amber-400 font-semibold">Math Faculty</p>
           </div>
 
           <!-- Monu Sir -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group" style="transition-delay: 200ms;">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-indigo-500/50 p-1 mb-6 shadow-[0_0_30px_rgba(99,102,241,0.3)] group-hover:shadow-[0_0_40px_rgba(99,102,241,0.5)] transition-shadow duration-300">
+          <div class="glass-card glass-card-hover p-6 text-center reveal-scroll relative group" style="transition-delay: 400ms;">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-indigo-500/50 p-1 mb-4 shadow-[0_0_20px_rgba(99,102,241,0.3)] group-hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-shadow duration-300">
               <img src="assets/images/monu.jpg" alt="Monu Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Monu+Sir&background=6366f1&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Monu Sir</h3>
-            <p class="text-sm text-indigo-400 font-semibold">Chemistry Faculty</p>
+            <h3 class="text-lg font-bold text-white mb-1">Monu Sir</h3>
+            <p class="text-xs text-indigo-400 font-semibold">Chemistry Faculty</p>
           </div>
 
           <!-- Suryakant Sir -->
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll relative group" style="transition-delay: 300ms;">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-rose-500/50 p-1 mb-6 shadow-[0_0_30px_rgba(244,63,94,0.3)] group-hover:shadow-[0_0_40px_rgba(244,63,94,0.5)] transition-shadow duration-300">
+          <div class="glass-card glass-card-hover p-6 text-center reveal-scroll relative group" style="transition-delay: 500ms;">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-rose-500/50 p-1 mb-4 shadow-[0_0_20px_rgba(244,63,94,0.3)] group-hover:shadow-[0_0_30px_rgba(244,63,94,0.5)] transition-shadow duration-300">
               <img src="assets/images/suryakant.jpg" alt="Suryakant Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Suryakant+Sir&background=f43f5e&color=fff'">
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">Suryakant Sir</h3>
-            <p class="text-sm text-rose-400 font-semibold">Biology Faculty</p>
+            <h3 class="text-lg font-bold text-white mb-1">Suryakant Sir</h3>
+            <p class="text-xs text-rose-400 font-semibold">Biology Faculty</p>
           </div>
 
         </div>
@@ -1580,4 +1617,4 @@
     });
   </script>
 </body>
-                </html>
+  </html>
