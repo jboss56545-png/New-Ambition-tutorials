@@ -184,6 +184,28 @@
     .star-input label:hover,
     .star-input label:hover ~ label { color: #fbbf24; }
 
+    /* Footer Social Cards Glow */
+    .social-card {
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .social-card:hover {
+      transform: translateY(-5px);
+    }
+    .social-card.insta:hover {
+      border-color: rgba(225, 48, 108, 0.6);
+      box-shadow: 0 10px 30px -10px rgba(225, 48, 108, 0.5);
+    }
+    .social-card.whats:hover {
+      border-color: rgba(37, 211, 102, 0.6);
+      box-shadow: 0 10px 30px -10px rgba(37, 211, 102, 0.5);
+    }
+    .social-card.mail:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.5);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       #nav-active-indicator, #nav-hover-indicator { transition: none !important; }
@@ -263,6 +285,7 @@
 
   <main id="main-content" class="relative z-10">
     
+    <!-- HERO SECTION -->
     <section id="home" class="relative pt-20 pb-24 sm:pt-28 sm:pb-32 overflow-hidden">
       <div class="float-icon float-1 font-serif" aria-hidden="true">π</div>
       <div class="float-icon float-2 font-sans" aria-hidden="true">∑</div>
@@ -284,40 +307,65 @@
             <p class="reveal-hero delay-2 text-lg text-slate-300 max-w-xl leading-relaxed">
               Premium tuition for Classes 6–12. We specialise in Science (PCMB), Commerce, Mathematics, and Languages with a focus on conceptual clarity and board excellence.
             </p>
+
+            <!-- Google Trust Badge -->
+            <div class="reveal-hero delay-2 flex items-center gap-2">
+              <div class="flex text-amber-400 text-lg">★★★★½</div>
+              <span class="text-sm text-slate-300 font-medium">4.7/5 Rating on Google</span>
+            </div>
             
-            <div class="reveal-hero delay-3 flex flex-wrap gap-4 pt-2">
-              <a href="#toppers" class="btn-primary px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
+            <!-- CTA Buttons -->
+            <div class="reveal-hero delay-3 flex flex-col sm:flex-row gap-4 pt-2">
+              <a href="#toppers" class="btn-primary px-7 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2">
                 Meet Our Stars
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
-              <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-7 py-3.5 rounded-xl font-bold flex items-center gap-2">
+              <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-7 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
                 Chat with Us
               </a>
             </div>
           </div>
 
+          <!-- Hero Right: Premium Stats Grid -->
           <div class="reveal-hero delay-3 relative">
             <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 rounded-3xl blur-2xl transform rotate-3" aria-hidden="true"></div>
-            <div class="glass-card p-8 relative border-white/10 grid grid-cols-2 gap-6">
-              <div class="space-y-1">
-                <span class="text-sm font-medium text-slate-400">Years of Excellence</span>
-                <div class="font-display text-4xl font-extrabold text-white">XX</div>
+            <div class="glass-card p-6 sm:p-8 relative border-white/10 grid grid-cols-2 gap-4">
+              
+              <div class="space-y-1 p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-sky-400/30 transition-colors">
+                <div class="flex items-center gap-2 text-slate-400 mb-1">
+                  <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span class="text-xs font-medium">Years</span>
+                </div>
+                <div class="font-display text-3xl font-extrabold text-white">15+</div>
               </div>
-              <div class="space-y-1">
-                <span class="text-sm font-medium text-slate-400">Students Taught</span>
-                <div class="font-display text-4xl font-extrabold text-white">XX</div>
+
+              <div class="space-y-1 p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-emerald-400/30 transition-colors">
+                <div class="flex items-center gap-2 text-slate-400 mb-1">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                  <span class="text-xs font-medium">Students</span>
+                </div>
+                <div class="font-display text-3xl font-extrabold text-white">500+</div>
               </div>
-              <div class="space-y-1">
-                <span class="text-sm font-medium text-slate-400">Expert Faculty</span>
-                <div class="font-display text-4xl font-extrabold text-white">7</div>
+
+              <div class="space-y-1 p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-amber-400/30 transition-colors">
+                <div class="flex items-center gap-2 text-slate-400 mb-1">
+                  <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                  <span class="text-xs font-medium">Faculty</span>
+                </div>
+                <div class="font-display text-3xl font-extrabold text-white">7</div>
               </div>
-              <div class="space-y-1">
-                <span class="text-sm font-medium text-slate-400">Success Rate</span>
-                <div class="font-display text-4xl font-extrabold text-emerald-400">XX%</div>
+
+              <div class="space-y-1 p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-indigo-400/30 transition-colors">
+                <div class="flex items-center gap-2 text-slate-400 mb-1">
+                  <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span class="text-xs font-medium">Success</span>
+                </div>
+                <div class="font-display text-3xl font-extrabold text-emerald-400">95%</div>
               </div>
+
             </div>
-            <p class="text-center text-[10px] text-slate-500 mt-2 italic">*Figures pending institute confirmation.</p>
+            <p class="text-center text-[10px] text-slate-500 mt-3 italic">*Results based on recent batches.</p>
           </div>
         </div>
       </div>
@@ -797,7 +845,6 @@
       </div>
     </section>
 
-    <!-- GALLERY SECTION (UPDATED WITH 8 IMAGES) -->
     <section id="gallery" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
@@ -806,10 +853,8 @@
           <p class="text-slate-400">A glimpse into our premium learning environment and academic activities.</p>
         </div>
 
-        <!-- Grid layout optimized for 8 images (4 columns on large screens) -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           
-          <!-- Image 1 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Classroom Celebration">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom1.jpg" alt="Classroom Celebration" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80'">
@@ -819,7 +864,6 @@
             </div>
           </div>
 
-          <!-- Image 2 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Student Achievers">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom2.jpg" alt="Student Achievers" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80'">
@@ -829,7 +873,6 @@
             </div>
           </div>
 
-          <!-- Image 3 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Farewell Party">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom3.jpg" alt="Farewell Party" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80'">
@@ -839,7 +882,6 @@
             </div>
           </div>
 
-          <!-- Image 4 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Study Session">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom4.jpg" alt="Study Session" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80'">
@@ -849,7 +891,6 @@
             </div>
           </div>
 
-          <!-- Image 5 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Group Discussion">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom5.jpg" alt="Group Discussion" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80'">
@@ -859,7 +900,6 @@
             </div>
           </div>
 
-          <!-- Image 6 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Annual Function">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom6.jpg" alt="Annual Function" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80'">
@@ -869,7 +909,6 @@
             </div>
           </div>
 
-          <!-- Image 7 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Doubt Clearing">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom7.jpg" alt="Doubt Clearing" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80'">
@@ -879,7 +918,6 @@
             </div>
           </div>
 
-          <!-- Image 8 -->
           <div class="glass-card p-2 cursor-pointer group reveal-scroll gallery-item overflow-hidden" tabindex="0" role="button" aria-label="View Faculty & Students">
             <div class="relative overflow-hidden rounded-xl aspect-square">
               <img src="assets/images/classroom8.jpg" alt="Faculty & Students" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571260899304-425dea9d7f04?w=600&q=80'">
@@ -940,7 +978,6 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION (UPDATED WITH EMAIL) -->
     <section id="contact" class="py-20 border-t border-white/5 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -951,7 +988,6 @@
             <p class="text-slate-400 mb-8">Have questions about batches, fees, or the curriculum? Reach out to us directly or fill out the enquiry form.</p>
             
             <div class="space-y-4">
-              <!-- Call Us -->
               <a href="tel:+919219626863" class="glass-card p-4 flex items-center gap-4 hover:border-sky-400/50 transition-colors">
                 <div class="w-12 h-12 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 shrink-0">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -962,7 +998,6 @@
                 </div>
               </a>
               
-              <!-- Email Us -->
               <a href="mailto:newambitiontutorials12@gmail.com" class="glass-card p-4 flex items-center gap-4 hover:border-emerald-400/50 transition-colors group">
                 <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 group-hover:bg-emerald-500/30 transition-colors">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -973,7 +1008,6 @@
                 </div>
               </a>
 
-              <!-- Visit Us -->
               <a href="https://share.google/JZmOcbBItSjJCyTlF" target="_blank" rel="noopener noreferrer" class="glass-card p-4 flex items-center gap-4 hover:border-pink-400/50 transition-colors group">
                 <div class="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 shrink-0 group-hover:bg-pink-500/30 transition-colors">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -1056,31 +1090,67 @@
     </section>
   </main>
 
-  <!-- FOOTER (UPDATED WITH EMAIL & ASVIRO STUDIO) -->
-  <footer class="border-t border-white/10 bg-slate-950 pt-12 pb-8 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+  <!-- UPDATED FOOTER (HIGHLIGHTED) -->
+  <footer class="relative bg-slate-950 pt-16 pb-8 z-10 overflow-hidden">
+    <!-- Top Gradient Line -->
+    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-70"></div>
+    
+    <!-- Ambient Glows in Footer -->
+    <div class="absolute bottom-0 left-1/4 w-64 h-64 bg-pink-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-emerald-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Connect With Us Section -->
+      <div class="text-center mb-12 reveal-scroll">
+        <h3 class="font-display text-2xl font-bold text-white mb-2">Connect With Us</h3>
+        <p class="text-slate-400 text-sm">Have questions? Reach out to us on any of these platforms.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mb-16">
+        
+        <!-- Instagram Card -->
+        <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="social-card insta flex flex-col items-center justify-center p-6 rounded-2xl group">
+          <div class="w-14 h-14 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-500 mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <h4 class="text-white font-bold mb-1">Instagram</h4>
+          <p class="text-xs text-slate-400 group-hover:text-pink-300 transition-colors">@__newambitiontutorials__</p>
+        </a>
+
+        <!-- WhatsApp Card -->
+        <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="social-card whats flex flex-col items-center justify-center p-6 rounded-2xl group">
+          <div class="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12.031 0C5.431 0 0 5.43 0 12.031c0 2.12.553 4.173 1.602 5.977L.461 23.539l5.672-1.487A11.967 11.967 0 0012.031 24c6.6 0 12.031-5.43 12.031-12.031C24.062 5.43 18.631 0 12.031 0z"/></svg>
+          </div>
+          <h4 class="text-white font-bold mb-1">WhatsApp</h4>
+          <p class="text-xs text-slate-400 group-hover:text-emerald-300 transition-colors">+91 92196 26863</p>
+        </a>
+
+        <!-- Email Card -->
+        <a href="mailto:newambitiontutorials12@gmail.com" class="social-card mail flex flex-col items-center justify-center p-6 rounded-2xl group">
+          <div class="w-14 h-14 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-500 mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          </div>
+          <h4 class="text-white font-bold mb-1">Email Us</h4>
+          <p class="text-xs text-slate-400 group-hover:text-sky-300 transition-colors truncate w-full text-center px-2">newambitiontutorials12@gmail.com</p>
+        </a>
+
+      </div>
+
+      <!-- Footer Bottom Info -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 pt-8 border-t border-white/10">
         <div class="text-center md:text-left">
-          <h2 class="font-display text-2xl font-bold text-white mb-2">New Ambition Tutorials</h2>
-          <p class="text-slate-400 text-sm">Building strong concepts for Classes 6-12 (CBSE & UP Board).</p>
+          <h2 class="font-display text-xl font-bold text-white mb-1">New Ambition Tutorials</h2>
+          <p class="text-slate-400 text-xs">Building strong concepts for Classes 6-12 (CBSE & UP Board).</p>
           <p class="text-slate-500 text-xs mt-1">Ravindrapuri, Varanasi</p>
-          <p class="text-slate-500 text-xs mt-1">Email: <a href="mailto:newambitiontutorials12@gmail.com" class="hover:text-sky-300 transition-colors">newambitiontutorials12@gmail.com</a></p>
         </div>
         
-        <div class="flex flex-col sm:flex-row items-center gap-6">
-          <a href="https://share.google/JZmOcbBItSjJCyTlF" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors flex items-center gap-2 text-sm font-medium">
+        <div class="flex flex-col sm:flex-row items-center gap-6 text-sm">
+          <a href="https://share.google/JZmOcbBItSjJCyTlF" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             Get Directions
           </a>
-
-          <div class="flex items-center gap-4">
-            <a href="https://www.instagram.com/__newambitiontutorials__" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-500 transition-colors transform hover:-translate-y-1" aria-label="Visit our Instagram">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="https://wa.me/919219626863" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-500 transition-colors transform hover:-translate-y-1" aria-label="Chat with us on WhatsApp">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12.031 0C5.431 0 0 5.43 0 12.031c0 2.12.553 4.173 1.602 5.977L.461 23.539l5.672-1.487A11.967 11.967 0 0012.031 24c6.6 0 12.031-5.43 12.031-12.031C24.062 5.43 18.631 0 12.031 0z"/></svg>
-            </a>
-          </div>
         </div>
       </div>
       
