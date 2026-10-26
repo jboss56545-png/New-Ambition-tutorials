@@ -145,6 +145,27 @@
       animation: floatBadge 3s ease-in-out infinite;
     }
 
+    /* Review Card specific styles */
+    .review-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .review-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-5px);
+    }
+    .google-logo { width: 24px; height: 24px; }
+
+    /* Star Rating Input Styles */
+    .star-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 4px; }
+    .star-input input { display: none; }
+    .star-input label { color: #475569; cursor: pointer; font-size: 2rem; transition: color 0.2s; line-height: 1; }
+    .star-input input:checked ~ label,
+    .star-input input:hover ~ label,
+    .star-input label:hover,
+    .star-input label:hover ~ label { color: #fbbf24; }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       #nav-active-indicator, #nav-hover-indicator { transition: none !important; }
@@ -189,9 +210,9 @@
         <a href="#about" class="nav-link px-3 py-2 text-sm font-medium">About</a>
         <a href="#faculty" class="nav-link px-3 py-2 text-sm font-medium">Faculty</a>
         <a href="#toppers" class="nav-link px-3 py-2 text-sm font-medium text-amber-400">⭐ Stars</a>
+        <a href="#reviews" class="nav-link px-3 py-2 text-sm font-medium">Reviews</a>
         <a href="#classes" class="nav-link px-3 py-2 text-sm font-medium">Classes</a>
         <a href="#methodology" class="nav-link px-3 py-2 text-sm font-medium">Methodology</a>
-        <a href="#gallery" class="nav-link px-3 py-2 text-sm font-medium">Gallery</a>
         <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium">Contact</a>
       </nav>
 
@@ -215,9 +236,9 @@
           <a href="#about" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">About</a>
           <a href="#faculty" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Faculty</a>
           <a href="#toppers" class="mobile-link px-4 py-3 rounded-lg bg-amber-500/10 text-amber-300 font-bold">⭐ Our Brilliant Stars</a>
+          <a href="#reviews" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Google Reviews</a>
           <a href="#classes" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Classes</a>
           <a href="#methodology" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Methodology</a>
-          <a href="#gallery" class="mobile-link px-4 py-3 rounded-lg hover:bg-white/5 text-slate-200">Gallery</a>
           <a href="#contact" class="mobile-link px-4 py-3 rounded-lg bg-sky-500/20 text-sky-300 font-bold mt-2 text-center">Contact & Enquiry</a>
         </nav>
       </div>
@@ -275,7 +296,7 @@
               </div>
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Expert Faculty</span>
-                <div class="font-display text-4xl font-extrabold text-white">6</div>
+                <div class="font-display text-4xl font-extrabold text-white">7</div>
               </div>
               <div class="space-y-1">
                 <span class="text-sm font-medium text-slate-400">Success Rate</span>
@@ -295,7 +316,7 @@
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">About Us</span>
           <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-6">Dedicated Academic Guidance</h2>
           <p class="text-lg text-slate-300 leading-relaxed">
-            New Ambition Tutorials is a premier coaching institute led by <strong>Manish Mishra</strong> and <strong>Ajay Chaturvedi</strong>. We serve students from Class 6 to 12 across CBSE and UP Board, focusing on building strong conceptual foundations for lifelong success.
+            New Ambition Tutorials is a premier coaching institute founded by <strong>Ajay Chaturvedi</strong>. We serve students from Class 6 to 12 across CBSE and UP Board, focusing on building strong conceptual foundations for lifelong success.
           </p>
         </div>
       </div>
@@ -309,24 +330,19 @@
           <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Meet the Experts</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll">
-            <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 p-1 mb-6">
-              <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">MM</div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-1">Manish Mishra</h3>
-            <p class="text-sm text-sky-400 font-semibold mb-4">HOD & Chemistry Faculty</p>
-          </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
+          <!-- Ajay Chaturvedi (Founder) -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll">
             <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 p-1 mb-6">
               <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">AC</div>
             </div>
             <h3 class="text-xl font-bold text-white mb-1">Ajay Chaturvedi</h3>
-            <p class="text-sm text-emerald-400 font-semibold mb-4">Co-Founder & Math Faculty</p>
+            <p class="text-sm text-emerald-400 font-semibold mb-4">Founder of Ambition</p>
           </div>
 
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
+          <!-- Sneha Chaturvedi -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
             <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 p-1 mb-6">
               <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-inner">SC</div>
             </div>
@@ -334,7 +350,8 @@
             <p class="text-sm text-pink-400 font-semibold mb-4">Institute Manager</p>
           </div>
 
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll">
+          <!-- Swastik Roy -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-purple-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
               <img src="assets/images/swastik.jpg" alt="Swastik Roy" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Swastik+Roy&background=8B5CF6&color=fff'">
             </div>
@@ -342,21 +359,42 @@
             <p class="text-sm text-purple-400 font-semibold">Chemistry Educator</p>
           </div>
 
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
-            <div class="w-28 h-28 mx-auto rounded-full border-2 border-emerald-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <img src="assets/images/rahul.jpg" alt="Rahul Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Sir&background=10B981&color=fff'">
-            </div>
-            <h3 class="text-xl font-bold text-white mb-1">Rahul Sir</h3>
-            <p class="text-sm text-emerald-400 font-semibold">Commerce Faculty</p>
-          </div>
-
-          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
+          <!-- Pradeep Sir -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 300ms;">
             <div class="w-28 h-28 mx-auto rounded-full border-2 border-sky-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(56,189,248,0.3)]">
               <img src="assets/images/pradeep.jpg" alt="Pradeep Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Pradeep+Sir&background=0ea5e9&color=fff'">
             </div>
             <h3 class="text-xl font-bold text-white mb-1">Pradeep Sir</h3>
             <p class="text-sm text-sky-400 font-semibold">Physics Faculty</p>
           </div>
+
+          <!-- Rustom Sir -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 100ms;">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-amber-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <img src="assets/images/rustom.jpg" alt="Rustom Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Rustom+Sir&background=f59e0b&color=fff'">
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Rustom Sir</h3>
+            <p class="text-sm text-amber-400 font-semibold">Math Faculty</p>
+          </div>
+
+          <!-- Monu Sir -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 200ms;">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-indigo-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+              <img src="assets/images/monu.jpg" alt="Monu Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Monu+Sir&background=6366f1&color=fff'">
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Monu Sir</h3>
+            <p class="text-sm text-indigo-400 font-semibold">Chemistry Faculty</p>
+          </div>
+
+          <!-- Suryakant Sir -->
+          <div class="glass-card glass-card-hover p-8 text-center reveal-scroll" style="transition-delay: 300ms;">
+            <div class="w-28 h-28 mx-auto rounded-full border-2 border-rose-500/50 p-1 mb-6 shadow-[0_0_15px_rgba(244,63,94,0.3)]">
+              <img src="assets/images/suryakant.jpg" alt="Suryakant Sir" class="w-full h-full object-cover rounded-full bg-slate-800" onerror="this.src='https://ui-avatars.com/api/?name=Suryakant+Sir&background=f43f5e&color=fff'">
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Suryakant Sir</h3>
+            <p class="text-sm text-rose-400 font-semibold">Biology Faculty</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -378,18 +416,11 @@
           
           <!-- Star 1: Naman Upadhyay -->
           <div class="star-card rounded-2xl reveal-scroll group">
-            <!-- Score Badge -->
-            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">
-              91%
-            </div>
-            
-            <!-- Image Container -->
+            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">91%</div>
             <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
               <img src="assets/images/topper1.jpg" alt="Naman Upadhyay - 91%" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://ui-avatars.com/api/?name=Naman+Upadhyay&background=1e293b&color=fff&size=400'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
             </div>
-            
-            <!-- Details -->
             <div class="p-3 sm:p-4 text-center relative z-20 -mt-6">
               <h3 class="text-sm sm:text-lg font-bold text-white mb-1 group-hover:text-amber-300 transition-colors">Naman Upadhyay</h3>
               <div class="flex flex-col items-center gap-1.5">
@@ -401,9 +432,7 @@
 
           <!-- Star 2: Ayush Patel -->
           <div class="star-card rounded-2xl reveal-scroll group" style="transition-delay: 100ms;">
-            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">
-              86.16%
-            </div>
+            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">86.16%</div>
             <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
               <img src="assets/images/topper3.jpg" alt="Ayush Patel - 86.16%" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://ui-avatars.com/api/?name=Ayush+Patel&background=1e293b&color=fff&size=400'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
@@ -419,9 +448,7 @@
 
           <!-- Star 3: Shubhangita Singh -->
           <div class="star-card rounded-2xl reveal-scroll group" style="transition-delay: 200ms;">
-            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">
-              87%
-            </div>
+            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">87%</div>
             <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
               <img src="assets/images/topper4.jpg" alt="Shubhangita Singh - 87%" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://ui-avatars.com/api/?name=Shubhangita+Singh&background=1e293b&color=fff&size=400'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
@@ -437,9 +464,7 @@
 
           <!-- Star 4: Saurabh Tiwari -->
           <div class="star-card rounded-2xl reveal-scroll group" style="transition-delay: 300ms;">
-            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">
-              80%
-            </div>
+            <div class="score-badge absolute top-3 right-3 z-20 font-extrabold px-2.5 py-1 rounded-full text-xs sm:text-sm">80%</div>
             <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-800">
               <img src="assets/images/topper2.jpg" alt="Saurabh Tiwari - 80%" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://ui-avatars.com/api/?name=Saurabh+Tiwari&background=1e293b&color=fff&size=400'">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
@@ -457,8 +482,199 @@
       </div>
     </section>
 
+    <!-- NEW GOOGLE REVIEWS & REVIEW SUBMISSION SECTION -->
+    <section id="reviews" class="py-20 border-t border-white/5 bg-slate-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center mb-12 reveal-scroll">
+          <div class="text-center md:text-left mb-6 md:mb-0">
+            <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Testimonials</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">What Parents Say</h2>
+            <div class="flex items-center justify-center md:justify-start gap-3 mt-3">
+              <div class="flex text-amber-400 text-lg">★★★★½</div>
+              <span class="text-slate-300 font-medium">4.7 out of 5 stars</span>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://share.google/JZmOcbBItSjJCyTlF" target="_blank" rel="noopener noreferrer" class="glass-card px-5 py-3 flex items-center justify-center gap-3 hover:border-sky-400/50 transition-colors group">
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <span class="text-white font-semibold text-sm group-hover:text-sky-300 transition-colors">Read on Google</span>
+            </a>
+            <button id="open-review-modal" class="btn-primary px-5 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+              Write a Review
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Review 1 (5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold text-lg">R</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Rahul Sharma</h4>
+                  <p class="text-xs text-slate-400">2 weeks ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"The concept clarity my child received for Physics and Chemistry is unmatched. Ajay sir ensures every doubt is cleared personally. Highly recommended!"</p>
+          </div>
+
+          <!-- Review 2 (5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll" style="transition-delay: 100ms;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold text-lg">P</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Priya Verma</h4>
+                  <p class="text-xs text-slate-400">1 month ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"My daughter's performance in Mathematics improved drastically. The regular tests and parent-teacher communication gave me complete peace of mind."</p>
+          </div>
+
+          <!-- Review 3 (5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll" style="transition-delay: 200ms;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-lg">A</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Amit Singh</h4>
+                  <p class="text-xs text-slate-400">2 months ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"Best coaching institute for CUET preparation in Varanasi. The study material and mock tests are highly relevant to the actual exam pattern."</p>
+          </div>
+
+          <!-- Review 4 (4.5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll" style="transition-delay: 300ms;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-lg">N</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Neha Gupta</h4>
+                  <p class="text-xs text-slate-400">3 weeks ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★½</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"Very good teaching environment. The teachers are highly supportive and clear doubts patiently. Highly recommended for board preparation."</p>
+          </div>
+
+          <!-- Review 5 (4 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll" style="transition-delay: 400ms;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-cyan-600 text-white flex items-center justify-center font-bold text-lg">V</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Vikram Singh</h4>
+                  <p class="text-xs text-slate-400">1 month ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★☆</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"The study material is excellent and well-researched. Batch timings are a bit rigid, but the teaching quality makes up for it."</p>
+          </div>
+
+          <!-- Review 6 (5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold text-lg">S</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Sanjay Mishra</h4>
+                  <p class="text-xs text-slate-400">3 days ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"Very disciplined and focused environment. My son has become much more confident in his studies since joining. The teachers really care."</p>
+          </div>
+
+          <!-- Review 7 (5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-lg">K</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Kavita Sharma</h4>
+                  <p class="text-xs text-slate-400">1 week ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"Thank you New Ambition for the wonderful support. My daughter scored 91% in boards! The regular tests were a game changer."</p>
+          </div>
+
+          <!-- Review 8 (4.5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">M</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Manish Tiwari</h4>
+                  <p class="text-xs text-slate-400">2 weeks ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★½</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"The faculty is very knowledgeable. The way they explain complex concepts with real-life examples is really helpful for kids."</p>
+          </div>
+
+          <!-- Review 9 (4 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg">S</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Sunita Yadav</h4>
+                  <p class="text-xs text-slate-400">1 month ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★☆</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"Good experience overall. The location is very convenient and the staff is polite. Just wish they had more batches for class 11."</p>
+          </div>
+
+          <!-- Review 10 (5 Star) -->
+          <div class="review-card p-6 rounded-2xl reveal-scroll">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-lime-600 text-white flex items-center justify-center font-bold text-lg">R</div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Ramesh Gupta</h4>
+                  <p class="text-xs text-slate-400">3 weeks ago</p>
+                </div>
+              </div>
+              <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-slate-300 text-sm leading-relaxed">"Absolutely the best coaching in Ravindrapuri area. The teachers are always ready to help, even after class hours. 10/10 recommended."</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- CLASSES & SUBJECTS SECTION -->
-    <section id="classes" class="py-20 border-t border-white/5 bg-slate-900/20">
+    <section id="classes" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Curriculum</span>
@@ -519,7 +735,7 @@
     </section>
 
     <!-- METHODOLOGY SECTION -->
-    <section id="methodology" class="py-20 border-t border-white/5">
+    <section id="methodology" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">How We Teach</span>
@@ -564,7 +780,7 @@
     </section>
 
     <!-- GALLERY SECTION -->
-    <section id="gallery" class="py-20 border-t border-white/5 bg-slate-900/20">
+    <section id="gallery" class="py-20 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Campus Life</span>
@@ -603,7 +819,7 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 border-t border-white/5">
+    <section id="faq" class="py-20 border-t border-white/5 bg-slate-900/20">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12 reveal-scroll">
           <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Support</span>
@@ -651,7 +867,7 @@
     </section>
 
     <!-- CONTACT FORM SECTION -->
-    <section id="contact" class="py-20 border-t border-white/5 relative bg-slate-900/20">
+    <section id="contact" class="py-20 border-t border-white/5 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           
@@ -782,8 +998,7 @@
       
       <div class="text-center text-xs text-slate-600 border-t border-white/5 pt-6">
         <p>&copy; <span id="year"></span> New Ambition Tutorials. All rights reserved.</p>
-        <p class="mt-1">Managed by Sneha Chaturvedi | Led by Manish Mishra & Ajay Chaturvedi</p>
-        <!-- Updated Credit Line with Asviro Studio Vercel Link -->
+        <p class="mt-1">Managed by Sneha Chaturvedi | Founded by Ajay Chaturvedi</p>
         <p class="mt-3 text-[11px] text-slate-500 font-medium">Designed & Developed by <a href="https://asviro-studio.vercel.app" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 transition-colors">Asviro Studio</a></p>
       </div>
     </div>
@@ -799,7 +1014,7 @@
     </a>
   </div>
 
-  <!-- WHATSAPP POPUP FALLBACK MODAL -->
+  <!-- WHATSAPP POPUP FALLBACK MODAL (Enquiry) -->
   <div id="wa-fallback-modal" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-sm items-center justify-center p-4 hidden">
     <div class="glass-card max-w-md w-full p-6 text-center relative">
       <h3 class="text-xl font-bold text-white mb-2">Almost done!</h3>
@@ -808,6 +1023,40 @@
         Open WhatsApp
       </a>
       <button id="wa-fallback-close" class="text-sm text-slate-400 hover:text-white underline">Cancel</button>
+    </div>
+  </div>
+
+  <!-- REVIEW SUBMISSION MODAL -->
+  <div id="review-modal" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-sm items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-md w-full p-6 relative">
+      <button id="close-review-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white" aria-label="Close">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <h3 class="text-xl font-bold text-white mb-1">Share Your Experience</h3>
+      <p class="text-sm text-slate-400 mb-4">Your feedback helps us improve and helps other parents choose the right institute.</p>
+      
+      <form id="review-form" class="space-y-4">
+        <div>
+          <label for="review-name" class="block text-xs font-medium text-slate-400 mb-1">Your Name *</label>
+          <input type="text" id="review-name" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400" placeholder="e.g. Rahul Sharma">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-1">Your Rating *</label>
+          <div class="star-input">
+            <input type="radio" id="star5" name="rating" value="5" checked><label for="star5" title="5 stars">★</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+          </div>
+        </div>
+        <div>
+          <label for="review-text" class="block text-xs font-medium text-slate-400 mb-1">Your Review *</label>
+          <textarea id="review-text" rows="3" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400" placeholder="Tell us about your experience..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-bold">Submit Review</button>
+        <p class="text-center text-xs text-slate-500 mt-2">Your review will be sent to the institute for approval.</p>
+      </form>
     </div>
   </div>
 
@@ -1000,6 +1249,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
+      // --- FORM LOGIC (Enquiry) ---
       const form = document.getElementById('enquiry-form');
       const nameInput = document.getElementById('name');
       const nameError = document.getElementById('name-error');
@@ -1155,6 +1405,59 @@
         }
       });
 
+      // --- REVIEW MODAL LOGIC ---
+      const reviewModal = document.getElementById('review-modal');
+      const openReviewBtn = document.getElementById('open-review-modal');
+      const closeReviewBtn = document.getElementById('close-review-modal');
+      const reviewForm = document.getElementById('review-form');
+
+      openReviewBtn.addEventListener('click', () => {
+        reviewModal.classList.remove('hidden');
+        reviewModal.classList.add('flex');
+      });
+
+      closeReviewBtn.addEventListener('click', () => {
+        reviewModal.classList.add('hidden');
+        reviewModal.classList.remove('flex');
+      });
+
+      reviewModal.addEventListener('click', (e) => {
+        if (e.target === reviewModal) {
+          reviewModal.classList.add('hidden');
+          reviewModal.classList.remove('flex');
+        }
+      });
+
+      reviewForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const rName = document.getElementById('review-name').value;
+        const rRating = document.querySelector('input[name="rating"]:checked').value;
+        const rText = document.getElementById('review-text').value;
+
+        let stars = '';
+        for(let i=0; i<rRating; i++) stars += '⭐';
+
+        let message = `*🌟 NEW REVIEW SUBMISSION*\n\n`;
+        message += `*👤 Name:* ${rName}\n`;
+        message += `*⭐ Rating:* ${stars} (${rRating}/5)\n`;
+        message += `*📝 Review:* ${rText}\n\n`;
+        message += `_Submitted from Website_`;
+
+        const url = `https://wa.me/919219626863?text=${encodeURIComponent(message)}`;
+        const newWindow = window.open(url, '_blank');
+        
+        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+          waFallbackLink.href = url;
+          waFallbackModal.classList.remove('hidden');
+          waFallbackModal.classList.add('flex');
+        }
+        
+        reviewModal.classList.add('hidden');
+        reviewModal.classList.remove('flex');
+        reviewForm.reset();
+      });
+
+      // --- LIGHTBOX LOGIC ---
       const lightbox = document.getElementById('lightbox');
       const lbImg = document.getElementById('lb-img');
       const lbCaption = document.getElementById('lb-caption');
@@ -1256,4 +1559,4 @@
     });
   </script>
 </body>
-                                                                                         </html>
+              </html>
