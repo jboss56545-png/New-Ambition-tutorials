@@ -1672,8 +1672,14 @@
       reviewForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const rName = document.getElementById('review-name').value;
-        const rRating = document.querySelector('input[name="rating"]:checked').value;
-        const rText = document.getElementById('review-text').value;
+        const selectedRating = document.querySelector('input[name="rating"]:checked');
+        if (!selectedRating) {
+          const firstRating = document.querySelector('input[name="rating"]');
+          if (firstRating) firstRating.focus();
+          return;
+        }
+        const rRating = selectedRating.value;
+        const rText = document.getElementById('review-text').value.trim();
 
         let stars = '';
         for(let i=0; i<rRating; i++) stars += '⭐';
@@ -1714,6 +1720,7 @@
       };
 
       const updateLightbox = (index) => {
+        if (!galleryItems.length || !galleryItems[index]) return;
         const item = galleryItems[index];
         const img = item.querySelector('img');
         const caption = item.getAttribute('aria-label') || img.alt;
@@ -1724,6 +1731,7 @@
       };
 
       const openLightbox = (index, triggerElement) => {
+        if (!galleryItems.length) return;
         lastFocusedElement = triggerElement;
         currentImgIndex = index;
         updateLightbox(currentImgIndex);
